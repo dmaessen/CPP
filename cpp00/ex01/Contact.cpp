@@ -2,10 +2,19 @@
 #include "PhoneBook.hpp"
 #include <iostream>
 
+void Contact::getinfo()
+{
+	
+}
+
+
+
 void cmd_add()
 {
 	Contact newcontact;  // how does this work?? Create new contact
 	std::string input;
+
+	getdat
 	
 	std::cout << "First name: ";
 	std::getline(std::cin, newcontact->setFirstName(input)); // how does this work?
