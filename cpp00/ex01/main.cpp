@@ -18,9 +18,8 @@ int main(void)
 		std::cout << "Available commands: ADD, SEARCH and EXIT" << '\n';
 		std::getline(std::cin, cmd);
 		if (cmd == "ADD")
-			book.contact
 			cmd_add(); // show all available fileds to be filled in 
-		if (cmd == "SEARCH")
+		// if (cmd == "SEARCH")
 			//cmd_search(); // two phases: 1- display whole phonebook 2- ask for an index
 		if (cmd == "EXIT")
 			break ;
