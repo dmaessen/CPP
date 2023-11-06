@@ -1,7 +1,7 @@
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 #include <iostream>
-#include <string.h>
+#include <string>
 
 // void cmd_search()
 // {
@@ -18,7 +18,7 @@ int main(void)
 		std::cout << "Available commands: ADD, SEARCH and EXIT" << '\n';
 		std::getline(std::cin, cmd);
 		if (cmd == "ADD")
-			cmd_add(); // show all available fileds to be filled in 
+			cmd_add();
 		// if (cmd == "SEARCH")
 			//cmd_search(); // two phases: 1- display whole phonebook 2- ask for an index
 		if (cmd == "EXIT")
