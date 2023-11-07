@@ -2,9 +2,6 @@
 #define CONTACT_HPP
 #include <iostream>
 
-void cmd_add();
-//void print_contactinfo(Contact newcontact);
-
 class Contact
 {
 private:
@@ -36,6 +33,8 @@ public:
     std::string getNickname() const { return m_Nickname; }
 	std::string getPhoneNb() const { return m_PhoneNb; }
 	std::string getSecret() const { return m_Secret; }
+
+	//void PhoneBook::AddContact();
 	//void Contact::print_contactinfo();
     //void setContact(std::string FirstName, std::string LastName, std::string Nickname, std::string PhoneNb, std::string Secret);
 };
