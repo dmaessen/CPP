@@ -2,88 +2,42 @@
 #include "PhoneBook.hpp"
 #include <iostream>
 
-//void Contact::getinfo()
+void Contact::setFirstName(std::string input) {
+	m_FirstName = input;
+}
 
+void Contact::setLastName(std::string input) {
+	m_LastName = input;
+}
 
+void Contact::setNickname(std::string input) {
+	m_Nickname = input;
+}
 
+void Contact::setPhoneNb(std::string input) {
+	m_PhoneNb = input;
+}
 
-// void cmd_add()
-// {
-// 	Contact newcontact;
-// 	std::string input;
-// 	// index needed ??
-	
-// 	std::cout << "First name: ";
-// 	std::getline(std::cin, input);
-// 	if (input == "")
-// 	{
-// 		std::cout << "Invalid, an input is needed\n";
-// 		do {
-// 			std::getline(std::cin, input);
-// 		}	while (input == "");
-// 	}
-// 	newcontact.setFirstName(input);
+void Contact::setSecret(std::string input) {
+	m_Secret = input;
+}
 
-// 	std::cout << "Last name: ";
-// 	std::getline(std::cin, input);
-// 	if (input == "")
-// 	{
-// 		std::cout << "Invalid, an input is needed\n";
-// 		do {
-// 			std::getline(std::cin, input);
-// 		}	while (input == "");
-// 	}
-// 	newcontact.setLastName(input);
+std::string Contact::getFirstName() const {
+	return m_FirstName;
+}
 
-// 	std::cout << "Nickname: ";
-// 	std::getline(std::cin, input);
-// 	if (input == "")
-// 	{
-// 		std::cout << "Invalid, an input is needed\n";
-// 		do {
-// 			std::getline(std::cin, input);
-// 		}	while (input == "");
-// 	}
-// 	newcontact.setNickname(input);
+std::string Contact::getLastName() const {
+	return m_LastName;
+}
 
-// 	std::cout << "Phone number: ";
-// 	std::getline(std::cin, input);
-// 	if (input == "")
-// 	{
-// 		std::cout << "Invalid, an input is needed\n";
-// 		do {
-// 			std::getline(std::cin, input);
-// 		}	while (input == "");
-// 	}
-// 	newcontact.setPhoneNb(input);
+std::string Contact::getNickname() const {
+	return m_Nickname;
+}
 
-// 	std::cout << "Darkest secret: ";
-// 	std::getline(std::cin, input);
-// 	if (input == "")
-// 	{
-// 		std::cout << "Invalid, an input is needed\n";
-// 		do {
-// 			std::getline(std::cin, input);
-// 		}	while (input == "");
-// 	}
-// 	newcontact.setSecret(input);
+std::string Contact::getPhoneNb() const {
+	return m_PhoneNb;
+}
 
-// 	std::cout << newcontact.getFirstName() << '\n';
-//     std::cout << newcontact.getLastName() << '\n';
-//     std::cout << newcontact.getNickname() << '\n';
-//     std::cout << newcontact.getPhoneNb() << '\n';
-//     std::cout << newcontact.getSecret() << '\n';
-//     // print_contactinfo(newcontact);
-// 	// maybe extra field to see which contact has been added last for overwritting??
-// 	// now add new to the phonebook list, checking if it needs to overwrite the oldest
-// }
-
-// // void Contact::print_contactinfo(Contact newcontact)
-// // {
-// //     std::cout << newcontact.getFirstName() << '\n'; // do i need newcontact here?? bit confused
-// //     std::cout << newcontact.getLastName() << '\n';
-// //     std::cout << newcontact.getNickname() << '\n';
-// //     std::cout << newcontact.getPhoneNb() << '\n';
-// //     std::cout << newcontact.getSecret() << '\n';
-// // }
-
+std::string Contact::getSecret() const {
+	return m_Secret;
+}

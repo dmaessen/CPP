@@ -5,7 +5,7 @@ SRC =  main.cpp Contact.cpp PhoneBook.cpp \
 OBJ = ${SRC:.cpp=.o}
 
 CC = c++ 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++11
 RM = rm -f
 
 all: $(NAME)
