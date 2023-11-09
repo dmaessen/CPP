@@ -1,10 +1,10 @@
-NAME = phonebook
+NAME = account
 
 CC = c++ 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++11
 RM = rm -f
 
-SRC =  main.cpp Contact.cpp PhoneBook.cpp \
+SRC = Account.cpp tests.cpp \
 
 OBJ = ${SRC:.cpp=.o}
 OBJ_DIR = obj/

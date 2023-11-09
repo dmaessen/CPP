@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/09 15:27:40 by dmaessen          #+#    #+#             */
+/*   Updated: 2023/11/09 15:27:41 by dmaessen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 #include <iostream>
@@ -5,6 +17,7 @@
 #include <string.h>
 #include <sstream>
 #include <stdio.h>
+#include <iomanip>
 
 void PhoneBook::init()
 {
@@ -18,7 +31,6 @@ void PhoneBook::cmd_add()
 	newcontact = getInfo();
 	contact[m_count_contacts % 8] = newcontact;
 	m_count_contacts += 1;
-	std::cout << "contacts amount == " << m_count_contacts % 8 << '\n'; // to rm
 }
 
 Contact PhoneBook::getInfo()
@@ -80,12 +92,6 @@ Contact PhoneBook::getInfo()
 		}	while (input == "");
 	}
 	newcontact.setSecret(input);
-
-	std::cout << newcontact.getFirstName() << '\n'; // to rm
-    std::cout << newcontact.getLastName() << '\n'; // to rm
-    std::cout << newcontact.getNickname() << '\n'; // to rm
-    std::cout << newcontact.getPhoneNb() << '\n'; // to rm
-    std::cout << newcontact.getSecret() << '\n'; // to rm
 	return newcontact;
 }
 
@@ -100,13 +106,8 @@ void	PhoneBook::cmd_search()
 	else
 		amount = m_count_contacts;
 	for (size_t i = 0; i < amount; i++)
-	{
 		printinfo(contact[i], i);
-		// display | index | first name | last name | nickname | --> each column 10char wide, if longer .
-		// and right align ++ add the dot
-		// resize fucntion for string -- and functions from cout
-	}
-	std::cout << "Please enter an index: "; // or with new line??
+	std::cout << "Please enter an index: ";
 	std::getline(std::cin, input);
 	try 
 	{
@@ -114,15 +115,17 @@ void	PhoneBook::cmd_search()
 	}
 	catch (std::invalid_argument const& ex)
 	{
-		std::cout << ex.what() << '\n';
+		std::cout << "Error in: " << ex.what() << '\n';
 	}
-	if (index < 0 || index > amount - 2) // check on this -2
+	if (index == 0 && amount == 1)
+		printinfo_of_x(contact[0]);
+	if (index < 0 || index > amount - 1)
 	{
 		std::cout << "Invalid index, try again.\n";
 		do {
 			std::getline(std::cin, input);
 			index = std::stoul(input);
-		}	while (index < 0 || index > amount);
+		}	while (index < 0 || index > amount - 1);
 	}
 	printinfo_of_x(contact[index]);
 }
@@ -131,18 +134,38 @@ void PhoneBook::printinfo(Contact contact, std::size_t i)
 {
 	std::string str;
 
+	std::cout << "|";
 	str = std::to_string(i);
+	if (str.size() > 10)
+		str[9] = '.';
+	if (str.size()  < 10)
+		std::cout << std::right << std::setw(10 - str.size()) << " ";
 	str.resize(10);
-	std::cout << "|" << str << "|";
+	std::cout << std::right << str << "|";
+	
 	str = contact.getFirstName();
+	if (str.size() > 10)
+		str[9] = '.';
+	if (str.size() < 10)
+		std::cout << std::right << std::setw(10 - str.size()) << " ";
 	str.resize(10);
-	std::cout << str << "|";
+	std::cout << std::right << str << "|";
+	
 	str = contact.getLastName();
+	if (str.size() > 10)
+		str[9] = '.';
+	if (str.size() < 10)
+		std::cout << std::right << std::setw(10 - str.size()) << " ";
 	str.resize(10);
-	std::cout << str << "|";
+	std::cout << std::right << str << "|";
+	
 	str = contact.getNickname();
+	if (str.size() > 1)
+		str[9] = '.';
+	if (str.size() < 10)
+		std::cout << std::right << std::setw(10 - str.size()) << " ";
 	str.resize(10);
-	std::cout << str << "|" << '\n';
+	std::cout << std::right << str << "|" << '\n';
 }
 
 void PhoneBook::printinfo_of_x(Contact contact)
