@@ -3,16 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:27:29 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/11/09 15:27:30 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/11/13 12:16:25 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 #include <iostream>
+
+Contact::Contact() {
+
+}
+
+Contact::~Contact() {
+
+}
 
 void Contact::setFirstName(std::string input) {
 	m_FirstName = input;

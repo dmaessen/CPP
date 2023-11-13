@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:27:33 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/11/09 15:27:34 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/11/13 12:14:24 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ private:
 	std::string	m_Secret;
 
 public:
+	Contact();
+	~Contact();
+
 	void		setFirstName(std::string input);
 	void		setLastName(std::string input);
 	void		setNickname(std::string input);

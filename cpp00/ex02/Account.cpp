@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:27:09 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/11/09 15:59:04 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/11/13 16:08:45 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,43 +14,90 @@
 #include <iostream>
 #include <ctime>
 
-static int	getNbAccounts( void )
+int	Account::_nbAccounts = 0;
+int	Account::_totalAmount = 0;
+int	Account::_totalNbDeposits = 0;
+int	Account::_totalNbWithdrawals = 0;
+Account::Account()
 {
-    
-    
+	int nb_acc = getNbAccounts();
+
+	_nbAccounts += 1;
+	_accountIndex = nb_acc;
+	_accountIndex = 0;
+	_amount = 0;
+	_nbDeposits = 0;
+	_nbWithdrawals = 0;
+	// just init here right?? nothing to write?
 }
 
-static int	getTotalAmount( void )
+Account::Account( int initial_deposit )
 {
-    
+    int nb_acc = getNbAccounts();
+	
+	_nbAccounts += 1;
+	_accountIndex = nb_acc;
+	_amount = initial_deposit;
+	_nbDeposits = 0;
+	_nbWithdrawals = 0;
+	_totalAmount += initial_deposit;
+	_displayTimestamp();
+	std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";created" << '\n';
 }
 
-static int	getNbDeposits( void )
+Account::~Account()
 {
-    
+	// int nb_acc = getNbAccounts();
+	// calculation needs to be dif here: amount + deposit - withd
+	_displayTimestamp();
+	std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";closed" << '\n';
 }
 
-static int	getNbWithdrawals( void )
+int	Account::getNbAccounts( void )
 {
-    
+	return _nbAccounts;
 }
 
-static void	displayAccountsInfos( void )
+int	Account::getTotalAmount( void )
 {
-    for (int i = 0; i < 8; i++)
-    {
-        _displayTimestamp();
-        std::cout << "index:" << i <<;
-        
-    }
+    return _totalAmount;
 }
 
-void	makeDeposit( int deposit );
-bool	makeWithdrawal( int withdrawal );
-int		checkAmount( void ) const;
-void	displayStatus( void ) const;
+int	Account::getNbDeposits( void )
+{
+    return _totalNbDeposits;
+}
 
-static void	_displayTimestamp( void )
+int	Account::getNbWithdrawals( void )
+{
+    return _totalNbWithdrawals;
+}
+
+void	Account::displayAccountsInfos( void )
+{
+    //this displays on one line the total info of all 8 acc
+}
+
+void	Account::makeDeposit( int deposit )
+{
+	
+}
+
+bool	Account::makeWithdrawal( int withdrawal )
+{
+	
+}
+
+int		Account::checkAmount( void ) const 
+{
+	
+}
+
+void	Account::displayStatus( void ) const {
+	
+}
+
+void	Account::_displayTimestamp( void )
 {
     std::time_t now = time(0);
     std::tm *ltm = localtime(&now);
