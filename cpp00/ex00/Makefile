@@ -5,7 +5,7 @@ SRC =  megaphone.cpp \
 OBJ = ${SRC:.cpp=.o}
 
 CC = c++ 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror c
 RM = rm -f
 
 all: $(NAME)
@@ -26,6 +26,3 @@ re: fclean
 	@$(MAKE) all
 
 .PHONY:	all clean fclean re
-
-
-# complie with c++ -Wall -Wextra -Werror -std=c++98 megaphone.cpp
