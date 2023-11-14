@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 15:27:43 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/11/14 14:59:40 by dmaessen         ###   ########.fr       */
+/*   Created: 2023/11/14 12:58:20 by dmaessen          #+#    #+#             */
+/*   Updated: 2023/11/14 14:50:49 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
-#include <iostream>
+#include "Zombie.hpp"
 
-class PhoneBook
+int main(void)
 {
-	private:
-		std::size_t	m_count_contacts;
-		Contact		contact[8];
+    Zombie z1;
+    Zombie z2;
+    Zombie *z3;
+    
+    z1.setName("John");
+    z1.announce();
+    z2.setName("Johnny");
+    z2.announce();
 
-	public:
-		PhoneBook();
-		~PhoneBook();
-	
-		void		init();
-		void		cmd_add();
-		Contact		getInfo();
-		void		cmd_search();
-		void		printinfo(Contact contact, std::size_t i);
-		void		printinfo_of_x(Contact contact);
-};
-
-#endif
+    z3 = newZombie("Johanna");
+    z3->announce();
+    delete(z3);
+    
+    randomChump("Joe");
+}

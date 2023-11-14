@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:27:40 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/11/13 12:15:37 by domi             ###   ########.fr       */
+/*   Updated: 2023/11/14 14:59:22 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,17 @@
 #include <stdio.h>
 #include <iomanip>
 
+PhoneBook::PhoneBook() {
+
+}
+
+PhoneBook::~PhoneBook() {
+
+}
+
 void PhoneBook::init()
 {
 	m_count_contacts = 0;
-}
-
-PhoneBook::PhoneBook() 
-{
-
-}
-
-PhoneBook::~PhoneBook()
-{
-
 }
 
 void PhoneBook::cmd_add()

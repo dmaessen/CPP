@@ -1,35 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 15:27:43 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/11/14 14:59:40 by dmaessen         ###   ########.fr       */
+/*   Created: 2023/11/14 14:06:33 by dmaessen          #+#    #+#             */
+/*   Updated: 2023/11/14 14:50:06 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
-#include <iostream>
+#include "Zombie.hpp"
 
-class PhoneBook
-{
-	private:
-		std::size_t	m_count_contacts;
-		Contact		contact[8];
-
-	public:
-		PhoneBook();
-		~PhoneBook();
-	
-		void		init();
-		void		cmd_add();
-		Contact		getInfo();
-		void		cmd_search();
-		void		printinfo(Contact contact, std::size_t i);
-		void		printinfo_of_x(Contact contact);
-};
-
-#endif
+Zombie* newZombie( std::string name ){
+    Zombie *newz = new(Zombie); // this mallocs space for zombie class -- on the heap
+    newz->setName(name);
+    return newz;
+}
