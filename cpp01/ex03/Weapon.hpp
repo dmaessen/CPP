@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 15:03:28 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/11/15 13:44:25 by dmaessen         ###   ########.fr       */
+/*   Created: 2023/11/15 14:12:15 by dmaessen          #+#    #+#             */
+/*   Updated: 2023/11/15 15:55:35 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef WEAPON_HPP
+#define WEAPON_HPP
+#include <iostream>
 
-int main(void){
-    Zombie *z;
-    Zombie *z2;
+class Weapon
+{
+    private:
+        std::string m_type;
+        Weapon(void);
+
+    public:
+        Weapon(std::string input);
+        ~Weapon(void);
     
-    z = zombieHorde(10, "John");
-    delete[] z;
-    z2 = zombieHorde(2, "Johnny");
-    delete[] z2;
-    return 0;    
-}
+        void		setType(std::string input);
+        std::string	getType() const;
+};
+
+#endif
