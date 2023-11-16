@@ -4,6 +4,8 @@ CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
+HEADERS = Zombie.hpp
+
 SRC = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp \
 
 OBJ = ${SRC:.cpp=.o}
@@ -12,7 +14,7 @@ OBJECT_PREFIXED = $(addprefix $(OBJ_DIR), $(OBJ))
 
 all: $(NAME)
 
-$(OBJ_DIR)%.o : %.cpp
+$(OBJ_DIR)%.o : %.cpp $(HEADERS)
 	@mkdir -p $(dir $@)
 	@$(CC) $(CPPFLAGS) -o $@ -c $<
 

@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 14:12:15 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/11/15 15:55:35 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/11/16 13:18:49 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ class Weapon
 {
     private:
         std::string m_type;
-        Weapon(void);
 
     public:
         Weapon(std::string input);

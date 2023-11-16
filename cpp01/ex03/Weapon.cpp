@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 14:53:09 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/11/15 15:57:31 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/11/16 13:18:42 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,9 @@
 #include "HumanA.hpp"
 #include "HumanB.hpp"
 
-Weapon::Weapon(){
-    std::cout << "Weapon destructor called\n";
-    // needed??
-}
-
 Weapon::Weapon(std::string input) {
     m_type = input;
-    std::cout << "Weapon destructor called\n";
+    std::cout << "Weapon constructor called\n";
 }
 
 Weapon::~Weapon(){

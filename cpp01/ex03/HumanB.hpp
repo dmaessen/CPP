@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:03:16 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/11/15 15:07:08 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/11/16 14:00:36 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@ class HumanB
 {
     private:
         std::string m_name;
-        Weapon  m_weapon;
+        Weapon*     m_weapon;
 
     public:
-        HumanB(void); // is this correct??
+        HumanB(std::string name);
         ~HumanB(void);
     
         void		setName(std::string input);
-        void		setWeapon(std::string input);
         std::string	getName() const;
-        std::string	getWeapon() const;
+        void        setWeapon(Weapon& w);
+        Weapon      getWeapon() const;
 
         void        attack();
 };

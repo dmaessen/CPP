@@ -4,6 +4,8 @@ CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++11
 RM = rm -f
 
+HEADERS = PhoneBook.hpp Contact.hpp
+
 SRC =  main.cpp Contact.cpp PhoneBook.cpp \
 
 OBJ = ${SRC:.cpp=.o}
@@ -12,7 +14,7 @@ OBJECT_PREFIXED = $(addprefix $(OBJ_DIR), $(OBJ))
 
 all: $(NAME)
 
-$(OBJ_DIR)%.o : %.cpp
+$(OBJ_DIR)%.o : %.cpp $(HEADERS)
 	@mkdir -p $(dir $@)
 	@$(CC) $(CPPFLAGS) -o $@ -c $<
 

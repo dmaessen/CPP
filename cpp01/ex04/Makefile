@@ -1,12 +1,12 @@
-NAME = account
+NAME = replace
 
 CC = c++ 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++11
 RM = rm -f
 
-HEADERS = Account.hpp
+HEADERS = 
 
-SRC = Account.cpp tests.cpp \
+SRC = main.cpp \
 
 OBJ = ${SRC:.cpp=.o}
 OBJ_DIR = obj/
@@ -19,7 +19,7 @@ $(OBJ_DIR)%.o : %.cpp $(HEADERS)
 	@$(CC) $(CPPFLAGS) -o $@ -c $<
 
 $(NAME): $(OBJECT_PREFIXED)
-	@$(CC) $(OBJECT_PREFIXED) -o $(NAME)
+	@$(CC) $(OBJECT_PREFIXED)  -o $(NAME)
 
 clean:
 	@rm -rf $(OBJ_DIR)
