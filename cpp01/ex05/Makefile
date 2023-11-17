@@ -1,12 +1,12 @@
-NAME = replace
+NAME = harl
 
 CC = c++ 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++11
 RM = rm -f
 
-HEADERS = Replace.hpp
+HEADERS = Harl.hpp
 
-SRC = main.cpp Replace.cpp \
+SRC = main.cpp Harl.cpp \
 
 OBJ = ${SRC:.cpp=.o}
 OBJ_DIR = obj/
