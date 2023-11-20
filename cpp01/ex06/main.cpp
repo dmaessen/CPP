@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/20 10:29:24 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/11/20 14:49:46 by dmaessen         ###   ########.fr       */
+/*   Created: 2023/11/20 14:49:52 by dmaessen          #+#    #+#             */
+/*   Updated: 2023/11/20 15:10:34 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-#define HARL_HPP
-#include <iostream>
+#include "Harl.hpp"
 
-class Harl {
-	private:
-		void debug( void );
-		void info( void );
-		void warning( void );
-		void error( void );
+int main (int argc, char **argv) {
+    Harl h;
 
-	public:
-		Harl(void) = default;
-		~Harl(void) = default;
-		
-		void complain( std::string level );
-};
-
-typedef struct s_funct{
-	std::string str;
-	void (Harl::*f)();
-}t_funct;
-
-#endif
+    if (argc == 2)
+        h.complain(argv[1]);
+    else
+        std::cout << "Wrong amount of arguments\n";
+    return 0;
+}
