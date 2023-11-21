@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:27:09 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/11/21 17:26:36 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/11/21 17:37:48 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,19 +132,9 @@ void	Account::_displayTimestamp( void )
     std::tm *ltm = localtime(&now);
     
     std::cout << "[" << 1900+ltm->tm_year;
-	if (1+ltm->tm_mon < 10)
-		std::cout << "0";
-	std::cout << 1+ltm->tm_mon;
-	if (ltm->tm_mday < 10)
-		std::cout << "0";
-	std::cout << ltm->tm_mday << "_";
-	if (ltm->tm_hour < 10)
-		std::cout << "0";
-    std::cout << ltm->tm_hour;
-	if (ltm->tm_min < 10)
-		std::cout << "0";
-	std::cout << ltm->tm_min;
-	if (ltm->tm_sec < 10)
-		std::cout << "0";
-	std::cout << ltm->tm_sec << "] ";
+	std::cout << std::setw(2) << std::setfill('0') << 1+ltm->tm_mon;
+	std::cout << std::setw(2) << std::setfill('0') << ltm->tm_mday << "_";
+    std::cout << std::setw(2) << std::setfill('0') << ltm->tm_hour;
+	std::cout << std::setw(2) << std::setfill('0') << ltm->tm_min;
+	std::cout << std::setw(2) << std::setfill('0') << ltm->tm_sec << "] ";
 }
