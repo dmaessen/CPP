@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:27:36 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/11/09 15:27:37 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/11/21 17:11:12 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main(void)
 	std::string cmd;
 
 	book.init();
-	while (1)
+	while (!std::cin.eof())
 	{
 		std::cout << "Available commands: ADD, SEARCH and EXIT" << '\n';
 		std::getline(std::cin, cmd);

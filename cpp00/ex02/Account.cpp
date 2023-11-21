@@ -6,13 +6,15 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:27:09 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/11/14 11:35:51 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/11/21 17:26:36 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 #include <iostream>
 #include <ctime>
+#include <iomanip>
+#include <cstring>
 
 int	Account::_nbAccounts = 0;
 int	Account::_totalAmount = 0;
@@ -129,6 +131,20 @@ void	Account::_displayTimestamp( void )
     std::time_t now = time(0);
     std::tm *ltm = localtime(&now);
     
-    std::cout << "[" << 1900+ltm->tm_year << 1+ltm->tm_mon << ltm->tm_mday;
-    std::cout << "_" << ltm->tm_hour << ltm->tm_min << ltm->tm_sec << "] ";
+    std::cout << "[" << 1900+ltm->tm_year;
+	if (1+ltm->tm_mon < 10)
+		std::cout << "0";
+	std::cout << 1+ltm->tm_mon;
+	if (ltm->tm_mday < 10)
+		std::cout << "0";
+	std::cout << ltm->tm_mday << "_";
+	if (ltm->tm_hour < 10)
+		std::cout << "0";
+    std::cout << ltm->tm_hour;
+	if (ltm->tm_min < 10)
+		std::cout << "0";
+	std::cout << ltm->tm_min;
+	if (ltm->tm_sec < 10)
+		std::cout << "0";
+	std::cout << ltm->tm_sec << "] ";
 }

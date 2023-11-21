@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 15:27:21 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/11/21 17:00:58 by dmaessen         ###   ########.fr       */
+/*   Created: 2023/11/21 12:50:31 by dmaessen          #+#    #+#             */
+/*   Updated: 2023/11/21 13:04:43 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "include/Fixed.hpp"
 #include <iostream>
-#include <ctype.h>
-#include <string.h>
-#include <cstring>
 
-int main(int argc, char **argv)
+int main( void )
 {
-	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << '\n';
-	else
-	{
-		for (int i = 1;  i < argc; ++i)
-		{
-			for (size_t len = 0; len < std::strlen(argv[i]); len++)
-				std::putchar(std::toupper(argv[i][len]));
-		}
-		std::cout << '\n';
-	}
-	return 0;
+    Fixed a;
+    Fixed b( a );
+    Fixed c;
+    c = b;
+    
+    std::cout << a.getRawBits() << std::endl;
+    std::cout << b.getRawBits() << std::endl;
+    std::cout << c.getRawBits() << std::endl;
+
+    return 0;
 }

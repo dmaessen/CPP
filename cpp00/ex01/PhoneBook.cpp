@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:27:40 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/11/14 14:59:22 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/11/21 16:54:28 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,10 @@ void	PhoneBook::cmd_search()
 	{
 		std::cout << "Error in: " << ex.what() << '\n';
 	}
+	catch (std::out_of_range const& ex)
+	{
+		std::cout << "Error in: " << ex.what() << '\n';
+	}
 	if (index == 0 && amount == 1)
 		printinfo_of_x(contact[0]);
 	if (index < 0 || index > amount - 1)
@@ -132,7 +136,18 @@ void	PhoneBook::cmd_search()
 		std::cout << "Invalid index, try again.\n";
 		do {
 			std::getline(std::cin, input);
-			index = std::stoul(input);
+			try 
+			{
+				index = std::stoul(input);
+			}
+			catch (std::invalid_argument const& ex)
+			{
+				std::cout << "Error in: " << ex.what() << '\n';
+			}
+			catch (std::out_of_range const& ex)
+			{
+				std::cout << "Error in: " << ex.what() << '\n';
+			}
 		}	while (index < 0 || index > amount - 1);
 	}
 	printinfo_of_x(contact[index]);

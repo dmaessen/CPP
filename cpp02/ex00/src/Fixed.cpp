@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 15:27:21 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/11/21 17:00:58 by dmaessen         ###   ########.fr       */
+/*   Created: 2023/11/21 12:50:34 by dmaessen          #+#    #+#             */
+/*   Updated: 2023/11/21 13:07:50 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "include/Fixed.hpp"
 #include <iostream>
-#include <ctype.h>
-#include <string.h>
-#include <cstring>
 
-int main(int argc, char **argv)
-{
-	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << '\n';
-	else
-	{
-		for (int i = 1;  i < argc; ++i)
-		{
-			for (size_t len = 0; len < std::strlen(argv[i]); len++)
-				std::putchar(std::toupper(argv[i][len]));
-		}
-		std::cout << '\n';
-	}
-	return 0;
+Fixed::Fixed(void) {
+    std::cout << "Default constructor called\n";
+}
+
+Fixed::Fixed(const &Fixed copy) {
+    // do something witht copy thing
+    std::cout << "Copy constructor called\n";
+}
+
+
+Fixed::~Fixed(void) {
+    std::cout << "Destructor called\n";
 }
