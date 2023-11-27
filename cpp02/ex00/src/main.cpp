@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 12:50:31 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/11/21 13:04:43 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/11/27 13:51:13 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/Fixed.hpp"
+#include "../include/Fixed.hpp"
 #include <iostream>
 
 int main( void )

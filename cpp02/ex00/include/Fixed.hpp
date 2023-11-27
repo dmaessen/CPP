@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 12:50:37 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/11/21 13:03:51 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/11/27 14:38:43 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@
 class Fixed {
     private:
         int                 m_value;
-        static const int    m_frac;
+        static const int    m_frac; 
 
     public:
         Fixed(void); // default constructor
-        Fixed(const Fixed& copy); // copy constructor
-        Fixed& operator=(const Fixed); // assignment
-        ~Fixed(void); // destructor
+        Fixed(const Fixed &copy); // copy constructor
+        Fixed& operator=(const Fixed &copy); // assignment
+        ~Fixed(void);
         
-        int                 getRawBits( void ) const; // returns the raw value of the fixed-point value
-        void                setRawBits( int const raw ); // sets the raw value of the fixed-point nb
+        int                 getRawBits( void ) const;
+        void                setRawBits( int const raw );
 };
 
 #endif
