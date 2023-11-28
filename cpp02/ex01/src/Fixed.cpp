@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/28 12:29:23 by dmaessen          #+#    #+#             */
+/*   Updated: 2023/11/28 14:50:55 by dmaessen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/Fixed.hpp"
 #include <iostream>
 #include <cmath>
@@ -33,21 +45,28 @@ int Fixed::getRawBits( void ) const {
     return m_value;
 }
 
-Fixed::Fixed(const float f) {
+Fixed::Fixed(const float fl) {
 	// what do f need to do here ??
 	std::cout << "Float constructor called\n";
 }
 
 float Fixed::toFloat(void) const {
+
 }
 
 Fixed::Fixed(const int i) {
 	// what do i need to do here
-	m_value = i ;
+	m_value = i ; // << m_frac
 	std::cout << "Int constructor called\n";
 }
 
 int Fixed::toInt(void) const {
+
 }
 
+std::ostream &operator<<(std::ostream &out, const Fixed &f) {
+    out << f.toFloat();
+    return out;
+}
 // implement the operation << thing
+// inserts a floating-point representation of m_value into the outstream passed as paramter
