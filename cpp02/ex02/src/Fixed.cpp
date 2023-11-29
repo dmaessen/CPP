@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:29:23 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/11/29 15:37:32 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/11/29 17:38:47 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ Fixed::Fixed(void) {
 
 Fixed::Fixed(const Fixed &copy) {
     std::cout << "Copy constructor called\n";
-    this->m_value = copy.getRawBits();
+    this->m_value = copy.m_value;
 }
 
 Fixed& Fixed::operator=(const Fixed &copy) {
     std::cout << "Copy assignment operator called\n";
-    setRawBits(copy.getRawBits());
+    setRawBits(copy.m_value);
     return *this;
 }
 
@@ -41,7 +41,7 @@ void Fixed::setRawBits( int const raw ) {
 }
 
 int Fixed::getRawBits( void ) const {
-    // std::cout << "getRawBits member function called\n";
+    //std::cout << "getRawBits member function called\n";
     return m_value;
 }
 
@@ -63,14 +63,73 @@ Fixed::Fixed(const int i) {
 }
 
 int Fixed::toInt(void) const {
-	//return m_value; dividing it again
     return this->toFloat();
 }
 
 std::ostream &operator<<(std::ostream &out, const Fixed &f) {
-	//std::cout << "we're here  TO FLOAT ==" << f.toFloat() << '\n'; // to rm
     out << f.toFloat();
     return out;
 }
-// implement the operation << thing
-// inserts a floating-point representation of m_value into the outstream passed as paramter
+
+bool Fixed::operator==(const Fixed &b) const {
+    return (this->toFloat() == b.toFloat()); // question if we ref to m_value or something toFloat()
+}
+
+bool Fixed::operator!=(const Fixed &b) const {
+    return (this->toFloat() != b.toFloat()); // question if we ref to m_value or something toFloat()
+    // return (*this != b); // maybe like so??
+}
+
+bool Fixed::operator<=(const Fixed &b) const {
+    return (this->toFloat() <= b.toFloat());
+}
+
+bool Fixed::operator>=(const Fixed &b) const {
+    return (this->toFloat() >= b.toFloat());
+}
+
+bool Fixed::operator<(const Fixed &b) const {
+    return (this->toFloat() < b.toFloat());
+}
+
+bool Fixed::operator>(const Fixed &b) const {
+    return (this->toFloat() > b.toFloat());
+}
+
+Fixed Fixed::operator-(const Fixed& b) const {
+    return (this->toFloat() - b.toFloat());
+}
+
+Fixed Fixed::operator+(const Fixed& b) const {
+    return (this->toFloat() + b.toFloat());
+}
+
+Fixed Fixed::operator*(const Fixed& b) const {
+    return (this->toFloat() * b.toFloat());
+}
+
+Fixed Fixed::operator/(const Fixed& b) const {
+    return (this->toFloat() / b.toFloat());
+}
+
+Fixed& Fixed::operator++() {
+    ++m_value;
+    return *this;
+}
+
+Fixed& Fixed::operator--() {
+    --m_value;
+    return *this;
+}
+
+Fixed Fixed::operator++(int) {
+    Fixed temp = *this;
+    ++*this;
+    return temp;
+}
+
+Fixed Fixed::operator--(int) {
+    Fixed temp = *this;
+    --*this;
+    return temp;
+}
