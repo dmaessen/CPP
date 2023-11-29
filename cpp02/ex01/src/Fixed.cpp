@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:29:23 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/11/28 14:50:55 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/11/29 10:03:23 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,25 +46,26 @@ int Fixed::getRawBits( void ) const {
 }
 
 Fixed::Fixed(const float fl) {
-	// what do f need to do here ??
+	// multiplying 1 by 2^m_frac(8)
+	m_value = fl * (1 << m_frac);
 	std::cout << "Float constructor called\n";
 }
 
 float Fixed::toFloat(void) const {
-
+	// what to do here
 }
 
 Fixed::Fixed(const int i) {
-	// what do i need to do here
-	m_value = i ; // << m_frac
+	m_value = i << m_frac; // left shiffting i by 8 positions
 	std::cout << "Int constructor called\n";
 }
 
 int Fixed::toInt(void) const {
-
+	//return ;
 }
 
 std::ostream &operator<<(std::ostream &out, const Fixed &f) {
+	std::cout << "we're here, m_value =" << f.m_value << '\n'; // to rm
     out << f.toFloat();
     return out;
 }
