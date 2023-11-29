@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:04:34 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/11/29 17:39:24 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/11/29 19:00:25 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ int main( void )
     std::cout << (c < d) << std::endl;
     std::cout << (c > d) << std::endl;
 
-    //std::cout << Fixed::max( a, b ) << std::endl;
+    std::cout << "max " << Fixed::max( a, b ) << std::endl;
+    std::cout << "min " << Fixed::min( a, b ) << std::endl;
     
     return 0;
 }

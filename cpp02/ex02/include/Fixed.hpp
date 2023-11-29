@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:23:52 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/11/29 17:42:30 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/11/29 19:06:19 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,10 @@ class Fixed {
         Fixed operator--(int);
 
         /* overload min/max */
-        static Fixed& min(); // needs to take a ref to two fixed points
-        
+        static Fixed min(const Fixed& a, const Fixed& b);
+        static Fixed max(const Fixed& a, const Fixed& b);
+        static Fixed min(Fixed& a, Fixed& b); 
+        static Fixed max(Fixed& a, Fixed& b);
 };
 
 std::ostream& operator<<(std::ostream &out, const Fixed &f);

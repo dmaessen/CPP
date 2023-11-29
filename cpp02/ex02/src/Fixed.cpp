@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:29:23 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/11/29 17:38:47 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/11/29 19:07:34 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ bool Fixed::operator==(const Fixed &b) const {
 
 bool Fixed::operator!=(const Fixed &b) const {
     return (this->toFloat() != b.toFloat()); // question if we ref to m_value or something toFloat()
-    // return (*this != b); // maybe like so??
 }
 
 bool Fixed::operator<=(const Fixed &b) const {
@@ -132,4 +131,26 @@ Fixed Fixed::operator--(int) {
     Fixed temp = *this;
     --*this;
     return temp;
+}
+
+Fixed Fixed::min(const Fixed& a, const Fixed& b) {
+    if (a < b)
+        return a;
+    return b;
+    // return (a < b) ? a : b; // if true returns a else b
+}
+
+Fixed Fixed::max(const Fixed& a, const Fixed& b) {
+    if (a > b)
+        return a;
+    return b;
+    // return (a < b ? b : a); 
+}
+
+Fixed Fixed::min(Fixed& a, Fixed& b) {
+    return (a < b) ? a : b; // if true returns a else b
+}
+
+Fixed Fixed::max(Fixed& a, Fixed& b) {
+    return (a < b ? b : a); 
 }
