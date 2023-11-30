@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:04:34 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/11/29 19:00:25 by domi             ###   ########.fr       */
+/*   Updated: 2023/11/30 14:17:48 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,14 @@ int main( void )
     std::cout << c << std::endl;
     std::cout << d << std::endl;
     std::cout << e << std::endl;
-    std::cout << (c == d) << std::endl; // returns 1 (if true)
-    std::cout << (c != d) << std::endl;
-    std::cout << (c <= d) << std::endl;
-    std::cout << (c >= d) << std::endl;
-    std::cout << (c < d) << std::endl;
-    std::cout << (c > d) << std::endl;
+
+    std::cout << std::boolalpha;
+    std::cout << "c == d = " << (c == d) << std::endl;
+    std::cout << "c != d = " << (c != d) << std::endl;
+    std::cout << "c <= d = " << (c <= d) << std::endl;
+    std::cout << "c >= d = " << (c >= d) << std::endl;
+    std::cout << "c >  d = " << (c < d) << std::endl;
+    std::cout << "c <  d = " << (c > d) << std::endl;
 
     std::cout << "max " << Fixed::max( a, b ) << std::endl;
     std::cout << "min " << Fixed::min( a, b ) << std::endl;

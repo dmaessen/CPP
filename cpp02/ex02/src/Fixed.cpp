@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:29:23 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/11/29 19:07:34 by domi             ###   ########.fr       */
+/*   Updated: 2023/11/30 14:47:28 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ Fixed::Fixed(const float fl) {
 }
 
 float Fixed::toFloat(void) const {
-	float newfl = (float)m_value / (1 << m_frac);
+	float newfl = (float)m_value / (float)(1 << m_frac);
     return newfl;
 }
 
@@ -63,7 +63,7 @@ Fixed::Fixed(const int i) {
 }
 
 int Fixed::toInt(void) const {
-    return this->toFloat();
+    return (int)this->toFloat();
 }
 
 std::ostream &operator<<(std::ostream &out, const Fixed &f) {
