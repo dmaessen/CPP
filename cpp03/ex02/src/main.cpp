@@ -6,34 +6,37 @@
 /*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:56:33 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/04 15:43:13 by domi             ###   ########.fr       */
+/*   Updated: 2023/12/04 16:03:55 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ClapTrap.hpp"
 #include "../include/ScavTrap.hpp"
+#include "../include/FragTrap.hpp"
 #include <iostream>
 
 int main( void )
 {
     //ClapTrap c ("John");
-    ClapTrap c2 ("Kyle");
-
+    ClapTrap c ("Kyle");
     ScavTrap s ("Alice");
-    
-    // c.attack(c2.getName());
-    // c2.attack(c.getName());
-    // c.takeDamage(10);
-    c2.takeDamage(6);
-    c2.beRepaired(20);
-    c2.takeDamage(6);
-    
-    s.attack(c2.getName());
-    c2.attack(s.getName());
-    s.takeDamage(40);
-    c2.attack(s.getName());
-    c2.takeDamage(10);
-    s.guardGate();
+    FragTrap f ("Felix");
 
+    s.guardGate();
+    c.takeDamage(6);
+    c.beRepaired(20);
+    c.takeDamage(6);
+    s.attack(c.getName());
+    c.attack(s.getName());
+    s.takeDamage(40);
+    c.attack(s.getName());
+    c.takeDamage(10);
+    f.highFivesGuys();
+    f.highFivesGuys();
+    f.attack(s.getName());
+    f.takeDamage(50);
+    f.takeDamage(15);
+    f.highFivesGuys();
+    
     return 0;
 }
