@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/30 14:56:33 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/05 16:48:17 by dmaessen         ###   ########.fr       */
+/*   Created: 2023/12/05 15:43:57 by dmaessen          #+#    #+#             */
+/*   Updated: 2023/12/05 15:46:22 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ClapTrap.hpp"
-#include "../include/ScavTrap.hpp"
+#ifndef CAT_HPP
+#define CAT_HPP
+#include "Animal.hpp"
 #include <iostream>
 
-int main( void )
+class Cat : public Animal 
 {
-    ClapTrap c ("Kyle");
-    ScavTrap s ("Alice");
+    protected:
 
-    std::cout << "\n";
-    s.attack(c.getName());
-    c.takeDamage(s.getAttack());
-    c.attack(s.getName());
-    s.takeDamage(c.getAttack());
-    c.attack(s.getName());
-    s.takeDamage(c.getAttack());
-    s.guardGate();
-    std::cout << "\n";
+    public:
+        Cat(void);
+        Cat(const Cat &copy); // copy constructor
+        Cat& operator=(const Cat &copy); // assignment
+        ~Cat(void);
 
-    return 0;
-}
+};
+
+#endif

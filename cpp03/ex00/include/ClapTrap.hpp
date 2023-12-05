@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:56:38 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/01 15:04:57 by domi             ###   ########.fr       */
+/*   Updated: 2023/12/05 16:35:48 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,6 @@ class ClapTrap
         void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 
-    
 };
-
 
 #endif

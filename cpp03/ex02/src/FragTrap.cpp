@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/05 11:19:49 by dmaessen          #+#    #+#             */
+/*   Updated: 2023/12/05 17:00:24 by dmaessen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/ClapTrap.hpp"
 #include "../include/FragTrap.hpp"
 #include <iostream>
@@ -28,10 +40,21 @@ FragTrap::~FragTrap(void) {
 }
 
 void FragTrap::highFivesGuys(void) {
+    if (getHit() == 0)
+    {
+        std::cout << "FragTrap " << getName() << " is technically dead so its hard\
+ to give a high five in those circumstances, i guess...\n";
+        return ;
+    }
 	std::cout << "FragTrap " << getName() << "'s high fives request was positive.\n";
 }
 
 void FragTrap::attack(const std::string& target) {
+    if (getHit() == 0)
+    {
+        std::cout << "FragTrap " << getName() << " is already dead, no attack possible!\n";
+        return ;
+    }
     if (getEnergy() < 1)
     {
         std::cout << "FragTrap " << getName() << " has no energy left to attack.\n";

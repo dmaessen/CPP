@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:56:36 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/01 15:24:02 by domi             ###   ########.fr       */
+/*   Updated: 2023/12/05 16:41:14 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <iostream>
 
 ClapTrap::ClapTrap(std::string name) : m_name(name) {
-    //m_name = name;
     setHit(10);
     setEnergy(10);
     setAttack(0);
@@ -23,8 +22,7 @@ ClapTrap::ClapTrap(std::string name) : m_name(name) {
 
 ClapTrap::ClapTrap(const ClapTrap &copy) {
     std::cout << "Copy constructor called\n";
-    // should do something here i bet
-    *this = copy; // is this right??
+    *this = copy;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap &copy) {
@@ -73,6 +71,11 @@ unsigned int ClapTrap::getAttack( void ) const {
 }
 
 void ClapTrap::attack(const std::string& target) {
+    if (getHit() == 0)
+    {
+        std::cout << "ClapTrap " << getName() << " is already dead, no attack possible!\n";
+        return ;
+    }
     if (getEnergy() < 1)
     {
         std::cout << "ClapTrap " << getName() << " has no energy left to attack.\n";
@@ -81,13 +84,18 @@ void ClapTrap::attack(const std::string& target) {
     setEnergy(getEnergy() - 1);
     std::cout << "ClapTrap " << getName() << " attacks " << target \
     << ", causing " << getAttack() << " points of damage!\n";
-    // so we have two claptraps and thus here we might need to call TakeDamage on the given target as param for that one to take the damage
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
+    if (getHit() == 0)
+    {
+        std::cout << "ClapTrap " << getName() << " is already dead, stop it!\n";
+        return ;
+    }
     if (getHit() < amount)
     {
-        std::cout << "ClapTrap " << getName() << " cannot take this damage anymore, its health is too low.\n";
+        setHit(0);
+        std::cout << "ClapTrap " << getName() << " died.\n";
         return ;
     }
     setHit(getHit() - amount);
@@ -95,6 +103,11 @@ void ClapTrap::takeDamage(unsigned int amount) {
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
+    if (getHit() == 0)
+    {
+        std::cout << "ClapTrap " << getName() << " is already dead, no repair possible!\n";
+        return ;
+    }
     if (getEnergy() < 1)
     {
         std::cout << "ClapTrap " << getName() << " has no energy left to be repaired.\n";

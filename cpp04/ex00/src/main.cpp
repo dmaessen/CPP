@@ -5,29 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/30 14:56:33 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/05 16:48:17 by dmaessen         ###   ########.fr       */
+/*   Created: 2023/12/05 13:37:04 by dmaessen          #+#    #+#             */
+/*   Updated: 2023/12/05 15:35:58 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ClapTrap.hpp"
-#include "../include/ScavTrap.hpp"
+#include "../include/Animal.hpp"
 #include <iostream>
 
-int main( void )
+int main(void)
 {
-    ClapTrap c ("Kyle");
-    ScavTrap s ("Alice");
+    const Animal* meta = new Animal();
+    const Animal* j = new Dog();
+    const Animal* i = new Cat();
 
-    std::cout << "\n";
-    s.attack(c.getName());
-    c.takeDamage(s.getAttack());
-    c.attack(s.getName());
-    s.takeDamage(c.getAttack());
-    c.attack(s.getName());
-    s.takeDamage(c.getAttack());
-    s.guardGate();
-    std::cout << "\n";
+    std::cout << j->getType() << " " << std::endl;
+    std::cout << i->getType() << " " << std::endl;
+    i->makeSound(); // will output the cat sound!
+    j->makeSound();
+    meta->makeSound();
+    
+    // implement a WrongCat class that inherits from a WrongAnimal class
+    // add more tests baed on this
 
+    delete(meta);
+    delete(j);
+    delete(i);
+    
     return 0;
 }

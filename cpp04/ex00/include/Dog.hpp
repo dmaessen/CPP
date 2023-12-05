@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/30 14:56:33 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/05 16:48:17 by dmaessen         ###   ########.fr       */
+/*   Created: 2023/12/05 15:43:53 by dmaessen          #+#    #+#             */
+/*   Updated: 2023/12/05 15:45:50 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ClapTrap.hpp"
-#include "../include/ScavTrap.hpp"
+#ifndef DOG_HPP
+#define DOG_HPP
+#include "Animal.hpp"
 #include <iostream>
 
-int main( void )
+class Dog : public Animal 
 {
-    ClapTrap c ("Kyle");
-    ScavTrap s ("Alice");
+    protected:
 
-    std::cout << "\n";
-    s.attack(c.getName());
-    c.takeDamage(s.getAttack());
-    c.attack(s.getName());
-    s.takeDamage(c.getAttack());
-    c.attack(s.getName());
-    s.takeDamage(c.getAttack());
-    s.guardGate();
-    std::cout << "\n";
+    public:
+        Dog(void);
+        Dog(const Dog &copy); // copy constructor
+        Dog& operator=(const Dog &copy); // assignment
+        ~Dog(void);
 
-    return 0;
-}
+};
+
+#endif

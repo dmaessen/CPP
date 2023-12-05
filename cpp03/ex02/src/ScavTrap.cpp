@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/05 11:19:53 by dmaessen          #+#    #+#             */
+/*   Updated: 2023/12/05 16:58:47 by dmaessen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/ClapTrap.hpp"
 #include "../include/ScavTrap.hpp"
 #include <iostream>
@@ -28,10 +40,20 @@ ScavTrap::~ScavTrap(void) {
 }
 
 void ScavTrap::guardGate() {
-	std::cout << "ScavTrap " << getName() << " is now in Gate keeper mode\n";
+    if (getHit() == 0)
+    {
+        std::cout << "ScavTrap " << getName() << " cannot guard the gate as he's dead...\n";
+        return ;
+    }
+	std::cout << "ScavTrap " << getName() << " is now in Gate keeper mode.\n";
 }
 
 void ScavTrap::attack(const std::string& target) {
+    if (getHit() == 0)
+    {
+        std::cout << "ScavTrap " << getName() << " is already dead, no attack possible!\n";
+        return ;
+    }
     if (getEnergy() < 1)
     {
         std::cout << "ScavTrap " << getName() << " has no energy left to attack.\n";

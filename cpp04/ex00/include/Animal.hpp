@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/30 14:56:33 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/05 16:48:17 by dmaessen         ###   ########.fr       */
+/*   Created: 2023/12/05 13:37:48 by dmaessen          #+#    #+#             */
+/*   Updated: 2023/12/05 15:43:27 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ClapTrap.hpp"
-#include "../include/ScavTrap.hpp"
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 #include <iostream>
 
-int main( void )
+class Animal
 {
-    ClapTrap c ("Kyle");
-    ScavTrap s ("Alice");
+    protected:
+        std::string type;
 
-    std::cout << "\n";
-    s.attack(c.getName());
-    c.takeDamage(s.getAttack());
-    c.attack(s.getName());
-    s.takeDamage(c.getAttack());
-    c.attack(s.getName());
-    s.takeDamage(c.getAttack());
-    s.guardGate();
-    std::cout << "\n";
+    public:
+        Animal(void);
+        Animal(const Animal &copy); // copy constructor
+        Animal& operator=(const Animal &copy); // assignment
+        ~Animal(void);
 
-    return 0;
-}
+        std::string getType( void ) const;
+		void setType( std::string input );
+        
+        void makeSound();
+        
+};
+
+#endif
