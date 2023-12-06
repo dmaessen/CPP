@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 13:37:48 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/06 14:28:20 by dmaessen         ###   ########.fr       */
+/*   Created: 2023/12/06 15:02:32 by dmaessen          #+#    #+#             */
+/*   Updated: 2023/12/06 15:29:56 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 #include <iostream>
 
-class Animal
+class Brain
 {
-    protected:
-        std::string type;
+    private:
+        std::string ideas[100];
 
     public:
-        Animal(void);
-        Animal(const Animal &copy); // copy constructor
-        Animal& operator=(const Animal &copy); // assignment
-        ~Animal(void);
+        Brain(void);
+        Brain(const Brain &copy);
+        Brain& operator=(const Brain &copy);
+        ~Brain(void);
 
-        std::string getType( void ) const;
-		void setType( std::string input );
-        
-        void makeSound( void ) const ;
+        std::string getIdeas( void ) const; // still to write them
+		void setIdeas( std::string input ); // still to write
         
 };
 

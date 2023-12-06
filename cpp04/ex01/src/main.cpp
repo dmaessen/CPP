@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 13:37:04 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/06 14:52:47 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/12/06 15:00:47 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,11 @@ int main(void)
     j->makeSound();
     meta->makeSound();
 
+    // add the brain tests
+
     delete(meta);
     delete(j);
     delete(i);
-
-    std::cout << "\n\n"; 
-    const WrongAnimal* w = new WrongAnimal();
-    const WrongAnimal* wcat = new WrongCat();
-    std::cout << w->getType() << " " << std::endl;
-    std::cout << wcat->getType() << " " << std::endl;
-    w->makeSound();
-    wcat->makeSound();
-
-    delete(w);
-    delete(wcat);
     
     return 0;
 }

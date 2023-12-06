@@ -1,12 +1,12 @@
-NAME = poly
+NAME = brains
 
 CC = c++ 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
-HEADERS = include/Animal.hpp include/Dog.hpp include/Cat.hpp include/WrongAnimal.hpp include/WrongCat.hpp
+HEADERS = include/Animal.hpp include/Dog.hpp include/Cat.hpp include/WrongAnimal.hpp include/WrongCat.hpp include/Brain.hpp
 
-SRC = src/main.cpp src/Animal.cpp src/Dog.cpp src/Cat.cpp src/WrongAnimal.cpp src/WrongCat.cpp \
+SRC = src/main.cpp src/Animal.cpp src/Dog.cpp src/Cat.cpp src/WrongAnimal.cpp src/WrongCat.cpp src/Brain.cpp\
 
 OBJ = ${SRC:.cpp=.o}
 OBJ_DIR = obj/
