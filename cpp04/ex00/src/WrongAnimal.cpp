@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 13:37:37 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/06 14:53:52 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/12/07 15:00:25 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 WrongAnimal::WrongAnimal() {
     type = "WrongAnimal";
-    std::cout << "Default constructor called on " << getType() << "\n";
+    std::cout << "Default constructor called on " << getType() << " in WrongAnimal\n";
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal &copy) {
@@ -30,7 +30,7 @@ WrongAnimal& WrongAnimal::operator=(const WrongAnimal &copy) {
 }
 
 WrongAnimal::~WrongAnimal(void) {
-    std::cout << "Destructor called on " << getType() << "\n";
+    std::cout << "Destructor called on " << getType() << " in WrongAnimal\n";
 }
 
 std::string WrongAnimal::getType(void) const {
@@ -42,8 +42,5 @@ void WrongAnimal::setType(std::string input) {
 }
 
 void WrongAnimal::makeSound( void ) const {
-    if (getType() == "WrongCat")
-        std::cout << "WOUUUUUF... (yells the broken-cat)\n";
-    else
-        std::cout << "[no sound]... (wrong sound anyways)\n";
+    std::cout << "[no sound]...\n";
 }

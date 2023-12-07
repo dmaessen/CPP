@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 13:37:48 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/06 14:33:53 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/12/07 15:01:54 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ class WrongAnimal
         WrongAnimal(void);
         WrongAnimal(const WrongAnimal &copy); // copy constructor
         WrongAnimal& operator=(const WrongAnimal &copy); // assignment
-        ~WrongAnimal(void);
+        virtual ~WrongAnimal(void);
 
         std::string getType( void ) const;
 		void setType( std::string input );
         
-        void makeSound( void ) const ;
+        virtual void makeSound( void ) const ;
         
 };
 

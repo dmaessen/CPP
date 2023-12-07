@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:43:53 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/05 15:45:50 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/12/07 14:52:16 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class Dog : public Animal
         Dog& operator=(const Dog &copy); // assignment
         ~Dog(void);
 
+        void makeSound( void ) const ;
 };
 
 #endif

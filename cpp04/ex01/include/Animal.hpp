@@ -6,15 +6,16 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 13:37:48 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/06 14:28:20 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/12/07 16:45:29 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ANIMAL_HPP
 #define ANIMAL_HPP
+#include "Brain.hpp"
 #include <iostream>
 
-class Animal
+class Animal // : public Brain
 {
     protected:
         std::string type;
@@ -23,12 +24,15 @@ class Animal
         Animal(void);
         Animal(const Animal &copy); // copy constructor
         Animal& operator=(const Animal &copy); // assignment
-        ~Animal(void);
+        virtual ~Animal(void);
 
         std::string getType( void ) const;
 		void setType( std::string input );
         
-        void makeSound( void ) const ;
+        virtual void makeSound( void ) const ;
+
+        // Brain& getBrain( void ) const;
+		//virtual void setBrain( Brain* input );
         
 };
 

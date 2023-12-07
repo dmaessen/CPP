@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 13:37:48 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/06 14:28:20 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/12/07 14:55:30 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ class Animal
         Animal(void);
         Animal(const Animal &copy); // copy constructor
         Animal& operator=(const Animal &copy); // assignment
-        ~Animal(void);
+        virtual ~Animal(void);
 
         std::string getType( void ) const;
 		void setType( std::string input );
         
-        void makeSound( void ) const ;
+        virtual void makeSound( void ) const ;
         
 };
 

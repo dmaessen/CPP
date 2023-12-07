@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 14:19:33 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/06 14:24:19 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/12/07 14:53:06 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,8 @@ Cat& Cat::operator=(const Cat &copy) {
 
 Cat::~Cat(void) {
     std::cout << "Destructor called on " << getType() << "\n";
+}
+
+void Cat::makeSound( void ) const {
+    std::cout << "MIAAAAOUUUUU... (yells the cat)\n";
 }

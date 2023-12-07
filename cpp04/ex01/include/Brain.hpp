@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 15:02:32 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/06 15:29:56 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/12/07 16:43:33 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@ class Brain
         Brain& operator=(const Brain &copy);
         ~Brain(void);
 
-        std::string getIdeas( void ) const; // still to write them
-		void setIdeas( std::string input ); // still to write
-        
+        std::string getIdeas( void ) const;
+		void setIdeas( std::string input );
 };
 
 #endif

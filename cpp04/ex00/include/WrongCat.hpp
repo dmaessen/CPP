@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:43:57 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/06 14:38:12 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/12/07 14:57:51 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class WrongCat : public WrongAnimal
         WrongCat& operator=(const WrongCat &copy); // assignment
         ~WrongCat(void);
 
+        void makeSound( void ) const ;
 };
 
 #endif
