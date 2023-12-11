@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:43:53 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/07 16:42:31 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/12/11 11:56:16 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class Dog : public Animal 
 {
     private:
-        Brain* _brain;
+        Brain* m_brain;
 
     public:
         Dog(void);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:45:37 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/07 15:05:02 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/12/11 12:58:23 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,39 @@
 Dog::Dog(void) : Animal() {
     type = "Dog";
     std::cout << "Default constructor called on " << getType() << "\n";
-    this->_brain = new Brain(); // test this and make sure we have getters and setters
+    m_brain = new Brain();
 }
 
-Dog::Dog(const Dog &copy) {
+Dog::Dog(const Dog &copy) : Animal() {
     std::cout << "Copy constructor called on " << getType() << "\n";
-    *this = copy;
+    type = copy.type;
+    delete (m_brain);
+    m_brain = new Brain(*copy.m_brain);
+    return ;
 }
 
 Dog& Dog::operator=(const Dog &copy) {
-    setType(copy.type);
-    setBrain(copy._brain);
+    if (this != &copy)
+    {
+        type = copy.type;
+        delete (m_brain);
+        m_brain = new Brain(*copy.m_brain);
+    }
     std::cout << "Copy assignment operator called on " << this->getType() << "\n";
-    return *this;
+    return (*this);
 }
 
 Dog::~Dog(void) {
-    delete(this->_brain);
+    delete(m_brain);
     std::cout << "Destructor called on " << getType() << "\n";
 }
 
 Brain& Dog::getBrain( void ) const {
-    return *_brain;
+    return *m_brain;
 }
 
 void Dog::setBrain( Brain* input ) {
-    _brain = input;
+    m_brain = input;
 }
 
 void Dog::makeSound( void ) const {

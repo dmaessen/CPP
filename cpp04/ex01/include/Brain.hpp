@@ -3,21 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 15:02:32 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/07 16:43:33 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/12/11 11:37:11 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BRAIN_HPP
 #define BRAIN_HPP
 #include <iostream>
+#include "Animal.hpp"
 
 class Brain
 {
     private:
-        std::string ideas[100];
+        std::string m_ideas[100];
 
     public:
         Brain(void);
@@ -25,8 +26,8 @@ class Brain
         Brain& operator=(const Brain &copy);
         ~Brain(void);
 
-        std::string getIdeas( void ) const;
-		void setIdeas( std::string input );
+		void setIdeas( std::string input, int i );
+        std::string getIdeas( int i ) const;
 };
 
 #endif

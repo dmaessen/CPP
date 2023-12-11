@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 14:19:33 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/07 16:14:23 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/12/11 12:58:13 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,39 @@
 Cat::Cat(void) : Animal() {
     type = "Cat";
     std::cout << "Default constructor called on " << getType() << "\n";
-    this->_brain = new Brain(); // test this and make sure we have getters and setters
+    m_brain = new Brain();
 }
 
-Cat::Cat(const Cat &copy) {
+Cat::Cat(const Cat &copy) : Animal() {
     std::cout << "Copy constructor called on " << getType() << "\n";
-    *this = copy;
+    type = copy.type;
+    delete(m_brain);
+    m_brain = new Brain(*copy.m_brain);
+    return ;
 }
 
 Cat& Cat::operator=(const Cat &copy) {
-    setType(copy.type);
-    setBrain(copy._brain);
+    if (this != &copy)
+    {
+        type = copy.type;
+        delete (m_brain);
+        m_brain = new Brain(*copy.m_brain);
+    }
     std::cout << "Copy assignment operator called on " << this->getType() << "\n";
-    return *this;
+    return (*this);
 }
 
 Cat::~Cat(void) {
-    delete(this->_brain);
+    delete(m_brain);
     std::cout << "Destructor called on " << getType() << "\n";
 }
 
 Brain& Cat::getBrain( void ) const {
-    return *_brain;
+    return *m_brain;
 }
 
 void Cat::setBrain( Brain* input ) {
-    _brain = input;
+    m_brain = input;
 }
 
 void Cat::makeSound( void ) const {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 13:37:37 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/07 15:00:32 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/12/11 11:40:21 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,5 @@ void Animal::setType(std::string input) {
 }
 
 void Animal::makeSound( void ) const {
-    std::cout << "[no sound]...\n";
+    std::cout << "[Animal makes a sound]...\n";
 }
