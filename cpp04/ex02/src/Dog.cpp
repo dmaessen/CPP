@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:45:37 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/12 12:41:02 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/12/12 14:47:06 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ Dog& Dog::operator=(const Dog &copy) {
 
 Dog::~Dog(void) {
     delete(m_brain);
-    std::cout << "Destructor called on " << getType() << "\n";
+    std::cout << "Destructor called on Dog\n";
 }
 
 Brain& Dog::getBrain( void ) const {
@@ -52,4 +52,12 @@ void Dog::setBrain( Brain* input ) {
 
 void Dog::makeSound( void ) const {
     std::cout << "WOUUUUF... (yells the dog)\n";
+}
+
+std::string Dog::getType(void) const {
+    return type;
+}
+
+void Dog::setType(std::string input) {
+    type = input;
 }

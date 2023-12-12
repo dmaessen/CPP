@@ -1,55 +1,63 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 15:45:37 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/12 12:41:02 by dmaessen         ###   ########.fr       */
+/*   Created: 2023/12/06 14:19:33 by dmaessen          #+#    #+#             */
+/*   Updated: 2023/12/12 15:55:04 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Dog.hpp"
+#include "../include/Cat.hpp"
 #include <iostream>
 
-Dog::Dog(void) : Animal() {
-    type = "Dog";
-    std::cout << "Default constructor called on Dog\n";
+Cat::Cat(void) : Animal() {
+    type = "Cat";
+    std::cout << "Default constructor called on Cat\n";
     m_brain = new Brain();
 }
 
-Dog::Dog(const Dog &copy) {
-    std::cout << "Copy constructor called on Dog\n";
+Cat::Cat(const Cat &copy) {
+    std::cout << "Copy constructor called on Cat\n";
     type = copy.type;
     m_brain = new Brain(*copy.m_brain);
     return ;
 }
 
-Dog& Dog::operator=(const Dog &copy) {
+Cat& Cat::operator=(const Cat &copy) {
     if (this != &copy)
     {
         type = copy.type;
         delete (m_brain);
         m_brain = new Brain(*copy.m_brain);
     }
-    std::cout << "Copy assignment operator called on Dog\n";
+    std::cout << "Copy assignment operator called on Cat\n";
     return (*this);
 }
 
-Dog::~Dog(void) {
+Cat::~Cat(void) {
     delete(m_brain);
-    std::cout << "Destructor called on " << getType() << "\n";
+    std::cout << "Destructor called on Cat\n";
 }
 
-Brain& Dog::getBrain( void ) const {
+Brain& Cat::getBrain( void ) const {
     return *m_brain;
 }
 
-void Dog::setBrain( Brain* input ) {
+void Cat::setBrain( Brain* input ) {
     m_brain = input;
 }
 
-void Dog::makeSound( void ) const {
-    std::cout << "WOUUUUF... (yells the dog)\n";
+void Cat::makeSound( void ) const {
+    std::cout << "MIAAAAOUUUUU... (yells the cat)\n";
+}
+
+std::string Cat::getType(void) const {
+    return type;
+}
+
+void Cat::setType(std::string input) {
+    type = input;
 }

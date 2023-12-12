@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 14:19:33 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/11 12:58:13 by domi             ###   ########.fr       */
+/*   Updated: 2023/12/12 12:41:05 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,13 @@
 
 Cat::Cat(void) : Animal() {
     type = "Cat";
-    std::cout << "Default constructor called on " << getType() << "\n";
+    std::cout << "Default constructor called on Cat\n";
     m_brain = new Brain();
 }
 
-Cat::Cat(const Cat &copy) : Animal() {
-    std::cout << "Copy constructor called on " << getType() << "\n";
+Cat::Cat(const Cat &copy) {
+    std::cout << "Copy constructor called on Cat\n";
     type = copy.type;
-    delete(m_brain);
     m_brain = new Brain(*copy.m_brain);
     return ;
 }
@@ -34,7 +33,7 @@ Cat& Cat::operator=(const Cat &copy) {
         delete (m_brain);
         m_brain = new Brain(*copy.m_brain);
     }
-    std::cout << "Copy assignment operator called on " << this->getType() << "\n";
+    std::cout << "Copy assignment operator called on Cat\n";
     return (*this);
 }
 

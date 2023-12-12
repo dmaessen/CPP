@@ -1,38 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/06 14:19:33 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/12 15:53:04 by dmaessen         ###   ########.fr       */
+/*   Created: 2023/12/05 13:37:37 by dmaessen          #+#    #+#             */
+/*   Updated: 2023/12/07 15:04:10 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/WrongCat.hpp"
+#include "../include/WrongAnimal.hpp"
 #include <iostream>
 
-WrongCat::WrongCat(void) : WrongAnimal() {
-    type = "WrongCat";
-    std::cout << "Default constructor called on " << getType() << "\n";
+WrongAnimal::WrongAnimal() {
+    type = "WrongAnimal";
+    std::cout << "Default constructor called on " << getType() << " in WrongAnimal\n";
 }
 
-WrongCat::WrongCat(const WrongCat &copy) {
+WrongAnimal::WrongAnimal(const WrongAnimal &copy) {
     std::cout << "Copy constructor called on " << getType() << "\n";
     *this = copy;
 }
 
-WrongCat& WrongCat::operator=(const WrongCat &copy) {
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal &copy) {
     setType(copy.type);
     std::cout << "Copy assignment operator called on " << this->getType() << "\n";
     return *this;
 }
 
-WrongCat::~WrongCat(void) {
-    std::cout << "Destructor called on " << getType() << "\n";
+WrongAnimal::~WrongAnimal(void) {
+    std::cout << "Destructor called on " << getType() << " in WrongAnimal\n";
 }
 
-void WrongCat::makeSound( void ) const {
-    std::cout << "ROOOAAR... (yells the broken-cat)\n";
+std::string WrongAnimal::getType(void) const {
+    return type;
+}
+
+void WrongAnimal::setType(std::string input) {
+    type = input;
+}
+
+void WrongAnimal::makeSound( void ) const {
+    std::cout << "[no sound]...\n";
 }

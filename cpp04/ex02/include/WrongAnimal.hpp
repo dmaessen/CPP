@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 13:37:48 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/12 15:53:59 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/12/07 15:01:54 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef WRONGANIMAL_HPP
+#define WRONGANIMAL_HPP
 #include <iostream>
 
-class Animal
+class WrongAnimal
 {
     protected:
         std::string type;
 
     public:
-        Animal(void);
-        Animal(const Animal &copy); // copy constructor
-        Animal& operator=(const Animal &copy); // assignment
-        virtual ~Animal(void);
+        WrongAnimal(void);
+        WrongAnimal(const WrongAnimal &copy); // copy constructor
+        WrongAnimal& operator=(const WrongAnimal &copy); // assignment
+        virtual ~WrongAnimal(void);
 
         std::string getType( void ) const;
 		void setType( std::string input );
