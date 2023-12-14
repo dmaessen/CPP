@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 13:37:04 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/12 15:13:40 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/12/14 12:52:05 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,13 @@ int main(void)
     d.makeSound();
     d2.makeSound();
     d3.makeSound();
+    std::cout << '\n';
+    for (int x = 0; x < 100; x++) {
+            d.getBrain().setIdeas("woof-woof ", x);
+    }
+    for (int x = 0; x < 100; x++) {
+            std::cout << d.getBrain().getIdeas(x);
+    }
     std::cout << '\n';
     
     return 0;

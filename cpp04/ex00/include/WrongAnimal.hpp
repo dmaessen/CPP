@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 13:37:48 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/07 14:59:38 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/12/14 12:47:23 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class WrongAnimal
         std::string getType( void ) const;
 		void setType( std::string input );
         
-        virtual void makeSound( void ) const ;
+        void makeSound( void ) const ;
 };
 
 #endif

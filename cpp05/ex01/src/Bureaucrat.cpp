@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:05:58 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/14 11:44:16 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/12/14 12:17:36 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,4 +111,12 @@ Bureaucrat::GradeTooLowException::GradeTooLowException(int value) {
 
 int Bureaucrat::GradeTooLowException::getValue( void ) const {
     return m_value;
+}
+
+void Bureaucrat::signForm(const Form &f) {
+    if (f.getDocsigned() == true)
+        std::cout << getName() << " signed " << f.getFname() << ".\n";  // <bureaucrat> signed <form>
+    else
+        std::cout << getName() << " couldn't sign " << f.getFname() << " because [reason to be added].\n"; // <bureaucrat> couldn’t sign <form> because <reason>.
+        // add the reason
 }

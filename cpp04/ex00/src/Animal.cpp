@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 13:37:37 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/11 11:40:21 by domi             ###   ########.fr       */
+/*   Updated: 2023/12/14 12:46:50 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 Animal::Animal() {
     type = "Animal";
-    std::cout << "Default constructor called on " << getType() << "in Animal\n";
+    std::cout << "Default constructor called on " << getType() << " in Animal\n";
 }
 
 Animal::Animal(const Animal &copy) {

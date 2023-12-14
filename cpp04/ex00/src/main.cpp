@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 13:37:04 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/06 14:52:47 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/12/14 12:54:23 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,24 @@ int main(void)
     j->makeSound();
     meta->makeSound();
 
-    delete(meta);
-    delete(j);
     delete(i);
+    delete(j);
+    delete(meta);
 
     std::cout << "\n\n"; 
     const WrongAnimal* w = new WrongAnimal();
     const WrongAnimal* wcat = new WrongCat();
+    const WrongCat* cat = new WrongCat();
     std::cout << w->getType() << " " << std::endl;
     std::cout << wcat->getType() << " " << std::endl;
+    std::cout << cat->getType() << " " << std::endl;
     w->makeSound();
     wcat->makeSound();
+    cat->makeSound();
 
-    delete(w);
+    delete(cat);
     delete(wcat);
+    delete(w);
     
     return 0;
 }
