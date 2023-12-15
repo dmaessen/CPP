@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 11:43:25 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/14 12:16:56 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/12/15 10:27:01 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 
-class Form : private Bureaucrat
+class Form : public Bureaucrat // needed??
 {
     private:
         const std::string m_fname;
