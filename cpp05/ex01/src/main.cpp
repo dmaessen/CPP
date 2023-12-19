@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:05:55 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/13 15:26:38 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/12/19 11:35:18 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Bureaucrat.hpp"
+#include "../include/Form.hpp"
 #include <iostream>
 
 int main(void) {
@@ -26,6 +27,14 @@ int main(void) {
     std::cout << b << "[decrementing] " << '\n';
     b.decrGrade();
     std::cout << b << '\n';
+
+    std::cout << "----------------\n";
+    Form f ("taxes", 10, 5);
+    
+    f.beSigned(b2); // not poss
+    b2.signForm(f);
+    f.beSigned(b);
+    b.signForm(f);
 
     return 0;
 }

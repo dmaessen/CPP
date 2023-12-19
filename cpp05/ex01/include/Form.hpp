@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 11:43:25 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/15 10:27:01 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/12/19 11:33:42 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,34 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 
-class Form : public Bureaucrat // needed??
+class Bureaucrat;
+
+class Form
 {
     private:
         const std::string m_fname;
         bool m_docsigned;
-        const size_t m_signgrade;
-        const size_t m_execgrade;
+        const int m_signgrade;
+        const int m_execgrade;
 
     public:
-        Form(const std::string fname, bool docsigned);
+        Form(void);
+        Form(const std::string fname, int signgrade, int execgrade);
         ~Form(void);
         Form(const Form &copy); // copy constructor
         Form& operator=(const Form &copy); // assignment
 
         const std::string getFname( void ) const;
         bool getDocsigned( void ) const;
-        const size_t getSigngrade( void ) const;
-        const size_t getExecgrade( void ) const;
+        int getSigngrade( void ) const;
+        int getExecgrade( void ) const;
         
-        // beSigned(); to implement
+        void setGradeE( int grade );
+        void setGradeS( int grade );
+        
+        void beSigned(const Bureaucrat &b); // to implement
+        
+        void sign(int grade);
 
         class GradeTooHighException
             {
@@ -57,7 +65,5 @@ class Form : public Bureaucrat // needed??
             };
         
 };
-
-std::ostream& operator<<(std::ostream &out, const Form &b);
 
 #endif

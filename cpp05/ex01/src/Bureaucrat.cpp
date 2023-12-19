@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:05:58 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/15 10:28:21 by dmaessen         ###   ########.fr       */
+/*   Updated: 2023/12/19 11:31:41 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,13 @@ const std::string Bureaucrat::getName( void ) const {
     return m_name;
 }
 
-size_t Bureaucrat::getGrade( void ) const {
+int Bureaucrat::getGrade( void ) const {
     return m_grade;
 }
 
 void Bureaucrat::setGrade( int grade) {
     if (grade > 0 && grade < 151)
-        m_grade = (size_t)grade;
+        m_grade = grade;
     else if (grade < 1)
         throw GradeTooHighException(grade);
     else if (grade > 150)
@@ -117,6 +117,5 @@ void Bureaucrat::signForm(const Form &f) {
     if (f.getDocsigned() == true)
         std::cout << getName() << " signed " << f.getFname() << ".\n";  // <bureaucrat> signed <form>
     else
-        std::cout << getName() << " couldn't sign " << f.getFname() << " because [reason to be added].\n"; // <bureaucrat> couldn’t sign <form> because <reason>.
-        // add the reason
+        std::cout << getName() << " couldn't sign " << f.getFname() << " because its grade is too low.\n"; // <bureaucrat> couldn’t sign <form> because <reason>.
 }
