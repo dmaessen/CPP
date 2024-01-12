@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 11:43:25 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/19 11:33:42 by domi             ###   ########.fr       */
+/*   Updated: 2024/01/12 13:04:23 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 #include "Bureaucrat.hpp"
 #include <iostream>
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
     private:
         const std::string m_fname;
@@ -26,11 +26,11 @@ class Form
         const int m_execgrade;
 
     public:
-        Form(void);
-        Form(const std::string fname, int signgrade, int execgrade);
-        ~Form(void);
-        Form(const Form &copy); // copy constructor
-        Form& operator=(const Form &copy); // assignment
+        AForm(void);
+        AForm(const std::string fname, int signgrade, int execgrade);
+        virtual ~AForm(void);
+        AForm(const AForm &copy); // copy constructor
+        AForm& operator=(const AForm &copy); // assignment
 
         const std::string getFname( void ) const;
         bool getDocsigned( void ) const;
@@ -42,7 +42,7 @@ class Form
         
         void beSigned(const Bureaucrat &b); // to implement
         
-        void sign(int grade);
+        virtual void sign(int grade) = 0; // or another one??
 
         class GradeTooHighException
             {
