@@ -6,7 +6,7 @@
 /*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 11:43:25 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/01/12 13:04:23 by domi             ###   ########.fr       */
+/*   Updated: 2024/01/22 13:40:09 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,28 +40,36 @@ class AForm
         void setGradeE( int grade );
         void setGradeS( int grade );
         
-        void beSigned(const Bureaucrat &b); // to implement
+        void beSigned(const Bureaucrat &b);
+        virtual void beExecuted(const Bureaucrat& executor) const = 0;
         
-        virtual void sign(int grade) = 0; // or another one??
+        void sign(int grade); // or another one??
 
-        class GradeTooHighException
+        class GradeTooHighException : public std::exception
             {
-                private:
-                    int m_value;
+                virtual const char* what(void) const throw();
+                // private:
+                //     int m_value;
                 
-                public:
-                    GradeTooHighException(int value);
-                    int getValue( void ) const;
+                // public:
+                //     GradeTooHighException(int value);
+                //     int getValue( void ) const;
             };
 
-            class GradeTooLowException
+            class GradeTooLowException : public std::exception
             {
-                private:
-                    int m_value;
+                virtual const char* what(void) const throw();
+                // private:
+                //     int m_value;
                 
-                public:
-                    GradeTooLowException(int value);
-                    int getValue( void ) const;
+                // public:
+                //     GradeTooLowException(int value);
+                //     int getValue( void ) const;
+            };
+
+            class FormNotSignedException : public std::exception
+            {
+                virtual const char* what(void) const throw();
             };
         
 };
