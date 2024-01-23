@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:06:01 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/19 11:30:51 by domi             ###   ########.fr       */
+/*   Updated: 2024/01/23 11:38:22 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <stdexcept>
 #include "Form.hpp"
 
-class Form; // needed ??
+class Form;
 
 class Bureaucrat
 {
@@ -37,28 +37,17 @@ class Bureaucrat
         void incrGrade( void ); 
         void decrGrade( void );
 
-        void signForm(const Form &f);
+        void signForm(Form &f);
 
-        class GradeTooHighException
+        class GradeTooHighException : public std::exception
         {
-            private:
-                int m_value;
-            
-            public:
-                GradeTooHighException(int value);
-                int getValue( void ) const;
+            virtual const char* what(void) const throw();
         };
 
-        class GradeTooLowException
+        class GradeTooLowException : public std::exception
         {
-            private:
-                int m_value;
-            
-            public:
-                GradeTooLowException(int value);
-                int getValue( void ) const;
+            virtual const char* what(void) const throw();
         };
-        
 };
 
 std::ostream& operator<<(std::ostream &out, const Bureaucrat &b);

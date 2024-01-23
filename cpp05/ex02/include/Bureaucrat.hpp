@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:06:01 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/01/22 14:24:00 by domi             ###   ########.fr       */
+/*   Updated: 2024/01/23 11:24:58 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <stdexcept>
 #include "AForm.hpp"
 
-class AForm; // needed ??
+class AForm;
 
 class Bureaucrat
 {
@@ -43,23 +43,11 @@ class Bureaucrat
         class GradeTooHighException : public std::exception
         {
             virtual const char* what(void) const throw();
-            // private:
-            //     int m_value;
-            
-            // public:
-            //     GradeTooHighException(int value);
-            //     int getValue( void ) const;
         };
 
         class GradeTooLowException : public std::exception
         {
             virtual const char* what(void) const throw();
-            // private:
-            //     int m_value;
-            
-            // public:
-            //     GradeTooLowException(int value);
-            //     int getValue( void ) const;
         };
         
 };

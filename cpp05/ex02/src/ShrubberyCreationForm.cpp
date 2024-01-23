@@ -3,53 +3,65 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 11:43:28 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/01/22 14:01:03 by domi             ###   ########.fr       */
+/*   Updated: 2024/01/23 11:23:50 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/RobotomyRequestForm.hpp"
+#include "../include/ShrubberyCreationForm.hpp"
 #include "../include/AForm.hpp"
 #include <iostream>
 #include <fstream>
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", 72, 45), m_target(target){
-    std::cout << "RobotomyRequestForm Default constructor called on " << target << "\n";
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreationForm", 145, 137), m_target(target){
+    std::cout << "Default constructor called on " << target << " in ShrubberyCreationForm.\n";
 }
 
-RobotomyRequestForm::~RobotomyRequestForm(void) {
-    std::cout << "RobotomyRequestForm Destructor called on " << m_target << "\n";
+ShrubberyCreationForm::~ShrubberyCreationForm(void) {
+    std::cout << "Destructor called on " << m_target << " in ShrubberyCreationForm.\n";
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy) : AForm(copy.getFname(), copy.getSigngrade(), copy.getExecgrade()), m_target(copy.m_target){
-    std::cout << "RobotomyRequestForm Copy constructor called\n";
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) : AForm(copy.getFname(), copy.getSigngrade(), copy.getExecgrade()), m_target(copy.m_target){
+    std::cout << "Copy constructor called in ShrubberyCreationForm.\n";
     *this = copy;
 }
 
-RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm &copy) {
+ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm &copy) {
     if (this != &copy)
         *this = copy;
-    std::cout << "RobotomyRequestForm Copy assignment operator called\n";
+    std::cout << "Copy assignment operator called in ShrubberyCreationForm.\n";
     return (*this);
 }
 
-std::string RobotomyRequestForm::getTarget( void ) const {
+std::string ShrubberyCreationForm::getTarget( void ) const {
 	return m_target;
 }
 
-void RobotomyRequestForm::beExecuted(const Bureaucrat& executor) const {
+void ShrubberyCreationForm::beExecuted(const Bureaucrat& executor) const {
 	if (this->getDocsigned() == false)
 		throw FormNotSignedException();
-	if (executor.getGrade() > this->getExecgrade())
+	else if (executor.getGrade() > this->getExecgrade())
 		throw GradeTooLowException();
-	
-	std::cout << "drilling noises...\n";
-	std::srand(time(NULL));
-	if (std::rand() % 2 == 0)
-		std::cout << this->m_target << " has been robotomized successfully.\n";
-	else
-		std::cout << this->m_target << " robotomy failed.\n";
-}
+	else {
+		std::string name = this->m_target + "_shrubbery";
+		std::ofstream outfile(name.c_str());
+		if (!outfile.is_open())
+			std::cout << "Error: opening outfile\n";
 
+		outfile << " 			   .          " << "\n";
+		outfile << "			__/ |__       " << "\n";
+		outfile << "			|     /       " << "\n";
+		outfile << "			 .'o'.       " << "\n";
+		outfile << "			 .o.'.        " << "\n";
+		outfile << "			.'.'o'.       " << "\n";
+		outfile << "		   o'.o.'.o.      " << "\n";
+		outfile << "		  .'.o.'.'.o.     " << "\n";
+		outfile << "		 .o.'.o.'.o.'.    " << "\n";
+		outfile << "		    [_____]       " << "\n";
+		outfile << "			 |___|        " << "\n";
+
+		outfile.close();
+	}
+}

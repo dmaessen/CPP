@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 11:43:25 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/01/22 13:40:09 by domi             ###   ########.fr       */
+/*   Updated: 2024/01/23 11:28:17 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,35 +42,21 @@ class AForm
         
         void beSigned(const Bureaucrat &b);
         virtual void beExecuted(const Bureaucrat& executor) const = 0;
-        
-        void sign(int grade); // or another one??
 
         class GradeTooHighException : public std::exception
-            {
-                virtual const char* what(void) const throw();
-                // private:
-                //     int m_value;
-                
-                // public:
-                //     GradeTooHighException(int value);
-                //     int getValue( void ) const;
-            };
+        {
+            virtual const char* what(void) const throw();
+        };
 
-            class GradeTooLowException : public std::exception
-            {
-                virtual const char* what(void) const throw();
-                // private:
-                //     int m_value;
-                
-                // public:
-                //     GradeTooLowException(int value);
-                //     int getValue( void ) const;
-            };
+        class GradeTooLowException : public std::exception
+        {
+            virtual const char* what(void) const throw();
+        };
 
-            class FormNotSignedException : public std::exception
-            {
-                virtual const char* what(void) const throw();
-            };
+        class FormNotSignedException : public std::exception
+        {
+            virtual const char* what(void) const throw();
+        };
         
 };
 

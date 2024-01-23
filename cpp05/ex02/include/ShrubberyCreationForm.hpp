@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 11:43:25 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/01/22 10:51:36 by domi             ###   ########.fr       */
+/*   Updated: 2024/01/23 11:24:41 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ class ShrubberyCreationForm : public AForm
 		std::string m_target;
 
 	public:
-		// ShrubberyCreationForm(void);
         ShrubberyCreationForm(std::string target);
         ~ShrubberyCreationForm(void);
         ShrubberyCreationForm(const ShrubberyCreationForm &copy); // copy constructor

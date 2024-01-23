@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:05:55 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/19 11:35:18 by domi             ###   ########.fr       */
+/*   Updated: 2024/01/23 11:37:24 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,11 @@ int main(void) {
     std::cout << "----------------\n";
     Form f ("taxes", 10, 5);
     
-    f.beSigned(b2); // not poss
-    b2.signForm(f);
+    f.beSigned(b2);
+    // b2.signForm(f);
     f.beSigned(b);
-    b.signForm(f);
+    // b.signForm(f);
+    std::cout << '\n';
 
     return 0;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 11:43:28 by dmaessen          #+#    #+#             */
-/*   Updated: 2023/12/19 11:37:15 by domi             ###   ########.fr       */
+/*   Updated: 2024/01/23 11:30:25 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,6 @@ Form::Form(const std::string fname, int signgrade, int execgrade) : m_fname(fnam
     try {
         setGradeS(signgrade);
         setGradeE(execgrade);
-    }
-    catch(const Form::GradeTooHighException e) {
-        std::cerr << e.getValue() << " is invalid. This grade is too high, highest possible grade is 1.\n";
-    }
-    catch(const Form::GradeTooLowException e) {
-        std::cerr << e.getValue() << " is invalid. This grade is too low, lowest possible grade is 150.\n";
     }
     catch(const std::exception& e) {
         std::cerr << e.what() << '\n';
@@ -68,54 +62,38 @@ int Form::getExecgrade( void ) const {
 }
 
 void Form::setGradeS( int grade ) {
-    // if (grade > 0 && grade < 151)
-    //     m_signgrade = (size_t)grade;
     if (grade < 1)
-        throw GradeTooHighException(grade);
+        throw GradeTooHighException();
     if (grade > 150)
-        throw GradeTooLowException(grade);
+        throw GradeTooLowException();
 }
 
 void Form::setGradeE( int grade ) {
-    // if (grade > 0 && grade < 151)
-    //     m_execgrade = (size_t)grade;
     if (grade < 1)
-        throw GradeTooHighException(grade);
+        throw GradeTooHighException();
     if (grade > 150)
-        throw GradeTooLowException(grade);
-}
-
-Form::GradeTooHighException::GradeTooHighException(int value) {
-    m_value = value;
-}
-
-int Form::GradeTooHighException::getValue( void ) const {
-    return m_value;
-}
-
-Form::GradeTooLowException::GradeTooLowException(int value) {
-    m_value = value; 
-}
-
-int Form::GradeTooLowException::getValue( void ) const {
-    return m_value;
-}
-
-void Form::sign(int grade) {
-    if (grade <= getSigngrade() && grade != 0)
-        m_docsigned = true;
-    else
-        throw GradeTooLowException(grade);
+        throw GradeTooLowException();
 }
 
 void Form::beSigned(const Bureaucrat &b) {
     try {
-        sign(b.getGrade());
-    }
-    catch(const Form::GradeTooLowException e) {
-        std::cerr << "This grade is too low, lowest possible grade is 150.\n";
+        if (b.getGrade() <= getSigngrade() && b.getGrade() != 0)
+        {
+            m_docsigned = true;
+            std::cout << b.getName() << " signed " << getFname() << ".\n";
+        }
+        else
+            throw GradeTooLowException();
     }
     catch(const std::exception& e) {
-        std::cerr << e.what() << '\n';
+        std::cerr << b.getName() << " couldn't sign " << getFname() << " because " << e.what();
     }
+}
+
+const char * Form::GradeTooHighException::what() const throw() {
+	return ("grade is invalid. This grade is too high, highest possible grade is 1.\n");
+}
+
+const char * Form::GradeTooLowException::what() const throw() {
+	return ("grade is invalid. This grade is too low, lowest possible grade is 150.\n");
 }

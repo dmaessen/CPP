@@ -1,12 +1,12 @@
-NAME = bureaucrat
+NAME = converter
 
 CC = c++ 
 CPPFLAGS = -Wall -Wextra -Werror -g -std=c++98
 RM = rm -f
 
-HEADERS = include/Bureaucrat.hpp include/AForm.hpp include/ShrubberyCreationForm.hpp include/RobotomyRequestForm.hpp include/PresidentialPardonForm.hpp \
+HEADERS = include/ScalarConverter.hpp \
 
-SRC = src/main.cpp src/Bureaucrat.cpp src/AForm.cpp src/ShrubberyCreationForm.cpp src/RobotomyRequestForm.cpp src/PresidentialPardonForm.cpp \
+SRC = src/main.cpp src/ScalarConverter.cpp \
 
 OBJ = ${SRC:.cpp=.o}
 OBJ_DIR = obj/
