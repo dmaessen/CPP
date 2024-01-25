@@ -1,12 +1,12 @@
-NAME = converter
+NAME = serialization
 
 CC = c++ 
-CPPFLAGS = -Wall -Wextra -Werror -g -std=c++11
+CPPFLAGS = -Wall -Wextra -Werror -g -std=c++98
 RM = rm -f
 
-HEADERS = include/ScalarConverter.hpp include/Converter.hpp \
+HEADERS = include/Serializer.hpp\
 
-SRC = src/main.cpp src/ScalarConverter.cpp src/Converter.cpp \
+SRC = src/main.cpp src/Serializer.cpp \
 
 OBJ = ${SRC:.cpp=.o}
 OBJ_DIR = obj/
