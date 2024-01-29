@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.cpp                                     :+:      :+:    :+:   */
+/*   C.cpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/25 14:36:01 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/01/29 14:10:52 by dmaessen         ###   ########.fr       */
+/*   Created: 2024/01/29 14:20:19 by dmaessen          #+#    #+#             */
+/*   Updated: 2024/01/29 15:10:21 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Serializer.hpp"
+#include "../include/C.hpp"
 
-uintptr_t Serializer::serialize(Data* ptr) {
-    std::uintptr_t u = reinterpret_cast<std::uintptr_t>(ptr);
-    return u;
+C::C(void) {
+    std::cout << "[C] Default constructor called\n";
 }
 
-Data* Serializer::deserialize(uintptr_t raw) {
-    Data* d = reinterpret_cast<Data*>(raw);
-    return d;
+C::~C(void){
+    std::cout << "[C] Destructor called on\n";
 }

@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.cpp                                     :+:      :+:    :+:   */
+/*   B.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/25 14:36:01 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/01/29 14:10:52 by dmaessen         ###   ########.fr       */
+/*   Created: 2024/01/29 14:20:07 by dmaessen          #+#    #+#             */
+/*   Updated: 2024/01/29 15:10:44 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Serializer.hpp"
+#ifndef B_HPP
+#define B_HPP
+#include "Base.hpp"
+#include <iostream>
 
-uintptr_t Serializer::serialize(Data* ptr) {
-    std::uintptr_t u = reinterpret_cast<std::uintptr_t>(ptr);
-    return u;
-}
+class B : public Base 
+{
+    private:
 
-Data* Serializer::deserialize(uintptr_t raw) {
-    Data* d = reinterpret_cast<Data*>(raw);
-    return d;
-}
+    public:
+        B(void);
+        ~B(void);
+};
+
+#endif

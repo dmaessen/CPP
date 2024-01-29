@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 11:55:35 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/01/25 14:41:35 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:11:34 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ class Converter // make this non instantiable
         // Converter(const Converter &copy); // copy constructor
         // Converter& operator=(const Converter &copy); // assignment
         
-        void conv_char(std::string input);
-        void conv_int(std::string input);
-        void conv_float(std::string input);
-        void conv_double(std::string input);
+        void conv_char(std::string input); // make this static ??
+        void conv_int(std::string input);  // make this static ??
+        void conv_float(std::string input);  // make this static ??
+        void conv_double(std::string input);  // make this static ??
 };
 
 #endif

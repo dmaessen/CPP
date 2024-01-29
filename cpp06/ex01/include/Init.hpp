@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.cpp                                     :+:      :+:    :+:   */
+/*   Init.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/25 14:36:01 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/01/29 14:10:52 by dmaessen         ###   ########.fr       */
+/*   Created: 2024/01/29 10:53:31 by dmaessen          #+#    #+#             */
+/*   Updated: 2024/01/29 14:08:45 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Serializer.hpp"
+#ifndef INIT_HPP
+#define INIT_HPP
+#include <iostream>
+#include <cstdint>
+#include <stdint.h>
 
-uintptr_t Serializer::serialize(Data* ptr) {
-    std::uintptr_t u = reinterpret_cast<std::uintptr_t>(ptr);
-    return u;
-}
+typedef struct s_data
+{
+    int i;
+    char c;
+} Data;
 
-Data* Serializer::deserialize(uintptr_t raw) {
-    Data* d = reinterpret_cast<Data*>(raw);
-    return d;
-}
+class Init
+{
+    private:
+        
+    public:
+        Init(void);
+        ~Init(void);
+        Init(const Init &copy); // copy constructor
+        Init& operator=(const Init &copy); // assignment
+        
+        //static void convert(Data* d);
+};
+
+#endif

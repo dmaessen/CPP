@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.cpp                                     :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/25 14:36:01 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/01/29 14:10:52 by dmaessen         ###   ########.fr       */
+/*   Created: 2024/01/29 14:20:00 by dmaessen          #+#    #+#             */
+/*   Updated: 2024/01/29 15:13:43 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Serializer.hpp"
+#ifndef BASE_HPP
+#define BASE_HPP
+#include <iostream>
 
-uintptr_t Serializer::serialize(Data* ptr) {
-    std::uintptr_t u = reinterpret_cast<std::uintptr_t>(ptr);
-    return u;
-}
+class Base 
+{
+    private:
 
-Data* Serializer::deserialize(uintptr_t raw) {
-    Data* d = reinterpret_cast<Data*>(raw);
-    return d;
-}
+    public:
+        virtual ~Base(void) = 0;
+};
+
+Base * generate(void);
+void identify(Base* p);
+void identify(Base& p);
+
+#endif

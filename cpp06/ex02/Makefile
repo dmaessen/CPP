@@ -1,12 +1,12 @@
-NAME = serialization
+NAME = identify
 
 CC = c++ 
-CPPFLAGS = -Wall -Wextra -Werror -g -std=c++11
+CPPFLAGS = -Wall -Wextra -Werror -g -std=c++98
 RM = rm -f
 
-HEADERS = include/Serializer.hpp include/Init.hpp \
+HEADERS = include/Base.hpp include/A.hpp include/B.hpp include/C.hpp \
 
-SRC = src/main.cpp src/Serializer.cpp src/Init.cpp \
+SRC = src/main.cpp src/Base.cpp src/A.cpp src/B.cpp src/C.cpp \
 
 OBJ = ${SRC:.cpp=.o}
 OBJ_DIR = obj/
