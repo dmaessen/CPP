@@ -1,7 +1,7 @@
 NAME = identify
 
 CC = c++ 
-CPPFLAGS = -Wall -Wextra -Werror -g -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -g -std=c++11
 RM = rm -f
 
 HEADERS = include/Base.hpp include/A.hpp include/B.hpp include/C.hpp \
