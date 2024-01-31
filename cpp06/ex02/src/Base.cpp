@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Base.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 14:20:16 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/01/31 10:09:57 by domi             ###   ########.fr       */
+/*   Updated: 2024/01/31 11:20:02 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,14 @@
 #include <ctime>
 #include <cstdlib>
 
+Base::~Base(void){
+    //std::cout << "[Base] Destructor called on\n";
+}
+
 // It randomly instanciates A, B or C and returns the instance as a Base pointer.
 Base * generate(void){
     std::srand(std::time(nullptr));
     int nb = 1 + std::rand() / ((RAND_MAX + 1u) / 3);
-    // std::cout << nb << '\n';
     
     Base *b;
     if (nb == 1)
@@ -48,50 +51,41 @@ void identify(Base* p) {
 
 // It prints the actual type of the object pointed to by p: "A", "B" or "C".
 void identify(Base& p) {
-    // if ((dynamic_cast<A&>(p)) != (nullptr))
-    //     std::cout << "p is type: A\n";
-    // else if (B& b_ptr = dynamic_cast<B&>(p))
-    //     std::cout << "p is type: B\n";
-    // else if (C& c_ptr = dynamic_cast<C&>(p))
-    //     std::cout << "p is type: C\n";
-    // else
-    //     std::cout << "type unkown\n";
-
     bool aType = false;
     bool bType = false;
     bool cType = false;
 
     try {
-        dynamic_cast<A&>(p);
+        A& a = dynamic_cast<A&>(p);
         aType = true;
+        (void)a;
     }
     catch (const std::bad_cast&){
+        // nothing
     }
     try {
-        dynamic_cast<B&>(p);
+        B& b = dynamic_cast<B&>(p);
         bType = true;
+        (void)b;
     }
     catch (const std::bad_cast&){
+        // nothing
     }
     try {
-        dynamic_cast<C&>(p);
+        C& c = dynamic_cast<C&>(p);
         cType = true;
+        (void)c;
     }
     catch (const std::bad_cast&){
+        // nothing
     }
 
-    if (aType == true) {
-        A& aRef = dynamic_cast<A&>(p); // put this in a try catch without bool and print statement directly
+    if (aType == true)
         std::cout << "p is type: A\n";
-    }
-    else if (bType == true) {
-        B& aRef = dynamic_cast<B&>(p);
+    else if (bType == true)
         std::cout << "p is type: B\n";
-    }
-    else if (cType == true) {
-        C& aRef = dynamic_cast<C&>(p);
+    else if (cType == true)
         std::cout << "p is type: C\n";
-    }
     else
         std::cout << "type unkown\n";
 }

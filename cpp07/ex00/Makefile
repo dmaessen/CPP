@@ -1,12 +1,12 @@
-NAME = converter
+NAME = template
 
 CC = c++ 
 CPPFLAGS = -Wall -Wextra -Werror -g -std=c++11
 RM = rm -f
 
-HEADERS = include/ScalarConverter.hpp \
+HEADERS = include/whatever.hpp \
 
-SRC = src/main.cpp src/ScalarConverter.cpp \
+SRC = src/main.cpp \
 
 OBJ = ${SRC:.cpp=.o}
 OBJ_DIR = obj/
