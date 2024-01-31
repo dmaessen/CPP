@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Base.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 14:20:16 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/01/30 14:47:11 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/01/31 10:09:57 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void identify(Base& p) {
     }
 
     if (aType == true) {
-        A& aRef = dynamic_cast<A&>(p);
+        A& aRef = dynamic_cast<A&>(p); // put this in a try catch without bool and print statement directly
         std::cout << "p is type: A\n";
     }
     else if (bType == true) {

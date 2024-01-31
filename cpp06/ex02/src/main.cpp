@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 14:20:21 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/01/30 14:38:55 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/01/31 10:20:32 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,16 @@ int main(void)
     Base *b = generate();
     Base *b1 = generate();
     Base *b2 = generate();
-    Base *b3 = generate();
 
+    std::cout << "---------\n";
     identify(b);
     identify(b1);
     identify(b2);
     
-    identify(*b3);
+    std::cout << "---------\n";
+    identify(*b);
+    identify(*b1);
+    identify(*b2);
 
     return 0;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 11:57:18 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/01/30 13:51:05 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/01/31 10:16:09 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,40 @@
 #include <iostream>
 #include <string>
 
+// JUST TEST ON LIMITS ON DOUBLE_FLOAT MAX MIN AND SO ON
+
 int main(void){
-    ScalarConverter s;// make constructer private to make not instantiatable (look into Singelton)
+    // make constructer private to make not instantiatable (look into Singelton)
     
     std::string input = "a";
-    s.convert(input);
+    ScalarConverter::convert(input);
     std::cout << "---------\n";
     input = "A";
-    s.convert(input);
+    ScalarConverter::convert(input);
     std::cout << "---------\n";
     input = "33";
-    s.convert(input);
+    ScalarConverter::convert(input);
     std::cout << "---------\n";
     input = "2147483647";
-    s.convert(input);
+    ScalarConverter::convert(input);
     std::cout << "---------\n";
     input = "-2";
-    s.convert(input);
+    ScalarConverter::convert(input);
     std::cout << "---------\n";
     input = "-2.1f";
-    s.convert(input);
+    ScalarConverter::convert(input);
     std::cout << "---------\n";
     input = "-inff";
-    s.convert(input);
+    ScalarConverter::convert(input);
     std::cout << "---------\n";
     input = "4.2";
-    s.convert(input);
+    ScalarConverter::convert(input);
     std::cout << "---------\n";
     input = "nan";
-    s.convert(input);
+    ScalarConverter::convert(input);
     std::cout << "---------\n";
     input = "-inf";
-    s.convert(input);
+    ScalarConverter::convert(input);
 
     return 0;
 }
