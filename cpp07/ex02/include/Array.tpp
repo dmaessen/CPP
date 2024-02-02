@@ -1,4 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Array.tpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/02 10:09:50 by dmaessen          #+#    #+#             */
+/*   Updated: 2024/02/02 11:26:39 by dmaessen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef ARRAY_TPP
+#define ARRAY_TPP
 #include "Array.hpp"
+#include <iostream>
 
 template <typename T>
 Array<T>::Array(void) {
@@ -20,14 +35,14 @@ Array<T>::~Array() {
 }
 
 template <typename T> // copy constructor
-Array<T>::Array(const Array &copy) : m_arr(NULL), m_size(copy.m_size) {
+Array<T>::Array(const Array &src) : m_arr(NULL), m_size(src.m_size) {
 	this->m_arr = new T[this->m_size];
 	for (size_t i = 0; i < this->m_size; i++)
-		this->m_arr[i] = copy.m_arr[i];
+		this->m_arr[i] = src.m_arr[i];
 }
         
 template <typename T>
-Array<T> &Array<T>::operator=(const Array &copy) {
+Array<T> &Array<T>::operator=(const Array &src) {
 	if (this->m_arr != NULL)
 		delete [] this->m_arr;
 	this->m_size = src.m_size;
@@ -67,3 +82,5 @@ std::ostream	&operator<<(std::ostream &out, const Array<T> &src)
 	out << "]";
 	return (out);
 }
+
+#endif

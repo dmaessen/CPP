@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:39:39 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/02/01 16:45:12 by domi             ###   ########.fr       */
+/*   Updated: 2024/02/02 11:24:58 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #define ARRAY_HPP
 #include <iostream>
 #include <exception>
-#include "Array.tpp"
 
 template <typename T> // or class here??
 class Array
@@ -27,8 +26,8 @@ class Array
         Array(void); // creates an empty arr
         Array(unsigned int n);// does this work?? //creates an arr of n elements
         ~Array();
-        Array(const Array &copy); // copy constructor -- TO DO
-        Array& operator=(const Array &copy); // assignment -- TO DO
+        Array(const Array &src); // copy constructor -- TO DO
+        Array& operator=(const Array &csrc); // assignment -- TO DO
 
         T &operator[](size_t i) const;
         size_t size(void) const;// returns the nb of elements in the arr
@@ -38,6 +37,8 @@ class Array
             virtual const char* what(void) const throw();
         };
 };
+
+#include "Array.tpp"
 
 template <typename T>
 std::ostream	&operator<<(std::ostream &o, const Array<T> &src);

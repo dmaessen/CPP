@@ -1,7 +1,7 @@
 NAME = template
 
 CC = c++ 
-CPPFLAGS = -Wall -Wextra -Werror -g -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -g -std=c++11
 RM = rm -f
 
 HEADERS = include/Array.hpp \
