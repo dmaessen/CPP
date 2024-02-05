@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 11:43:28 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/01/23 11:27:55 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/02/05 12:13:10 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,11 +91,11 @@ void AForm::beSigned(const Bureaucrat &b) {
 }
 
 const char * AForm::GradeTooHighException::what() const throw() {
-	return ("grade is invalid. This grade is too high, highest possible grade is 1.\n");
+	return ("this grade is too high.\n");
 }
 
 const char * AForm::GradeTooLowException::what() const throw() {
-	return ("grade is invalid. This grade is too low, lowest possible grade is 150.\n");
+	return ("this grade is too low.\n");
 }
 
 const char * AForm::FormNotSignedException::what() const throw() {

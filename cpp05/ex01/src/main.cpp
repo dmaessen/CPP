@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:05:55 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/01/23 11:37:24 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/02/05 12:10:37 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int main(void) {
     Bureaucrat b("Alice", 2);
-    Bureaucrat b2("John", 151);
+    Bureaucrat b2("John", 150);
     
     std::cout << '\n' << b << "[incrementing] " << '\n';
     b.incrGrade();
