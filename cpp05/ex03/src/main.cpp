@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:05:55 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/02/05 14:57:15 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/02/05 22:46:50 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,25 +23,29 @@ int main(void) {
     Bureaucrat b2("John", 140);
     
     std::cout << "----------------\n";
-    ShrubberyCreationForm f("Shrubbery-taxes");
-    b.signForm(f);
-    b.executeForm(f);
-    b2.signForm(f);
-    b2.executeForm(f);
+    Intern	i;
+	AForm*	f = i.makeForm("Shrubbery request", "taxes");
+    b.signForm(*f);
+    b.executeForm(*f);
+    b2.signForm(*f);
+    b2.executeForm(*f);
+    delete f;
 
     std::cout << "----------------\n";
-    RobotomyRequestForm f2("Robotomy-taxes");
-    b.signForm(f2);
-    b.executeForm(f2);
-    b2.signForm(f2);
-    b2.executeForm(f2);
+    AForm*	f2 = i.makeForm("robotomy request", "taxes");
+    b.signForm(*f2);
+    b.executeForm(*f2);
+    b2.signForm(*f2);
+    b2.executeForm(*f2);
+    delete f2;
 
     std::cout << "----------------\n";
-    PresidentialPardonForm f3("Presidential-taxes");
-    b.signForm(f3);
-    b.executeForm(f3);
-    b2.signForm(f3);
-    b2.executeForm(f3);
+    AForm*	f3 = i.makeForm("presidential pardon", "taxes");
+    b.signForm(*f3);
+    b.executeForm(*f3);
+    b2.signForm(*f3);
+    b2.executeForm(*f3);
+    delete f3;
     
     return 0;
 }

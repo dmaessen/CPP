@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 13:53:55 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/02/05 15:12:23 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/02/05 22:58:25 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,45 +41,51 @@ Intern& Intern::operator=(const Intern &copy) {
     return (*this);
 }
 
+static std::string lowerFname(std::string fname) {
+    std::string lowerStr;
+    for (size_t i = 0; i < fname.size(); i++)
+        lowerStr += tolower(fname[i]);
+    return (lowerStr);
+}
+
 AForm* Intern::makeForm(std::string fname, std::string target) {
-    std::string str;
-    for (int i = 0; str[i] != ' ' || str[i] == '\0'; i++)
-        str[i] = fname[i];
-        
+    AForm* f = NULL;
+    std::string str = lowerFname(fname);
+    
     try {
-        if (str == "robotomy" || str == "presidential"
-        || str == "shrubbery")
+        if (str == "robotomy request" || str == "presidential pardon"
+        || str == "shrubbery request")
         {
-            std::cout << "Intern creates " << fname << '\n';
-            char x = str[0];
+            char x = lowerFname(fname)[0];
             switch (x)
             {
                 case 'r':
                 {
-                    RobotomyRequestForm form(target);
-                    return (form);
+                    f = new RobotomyRequestForm(target);
                     break;
                 }
                 case 'p': 
                 {
-                    PresidentialPardonForm form(target);
-                    return (form);
+                    f = new PresidentialPardonForm(target);
                     break;
                 }
                 case 's': 
                 {
-                    ShrubberyCreationForm form(target);
-                    return (form);
+                    f = new ShrubberyCreationForm(target);
                     break;
                 }
             }
+            std::cout << "Intern creates " << f->getFname() << ".\n";
+            return f;
         }
         else
             throw FormNotFoundException();
     }
     catch(const std::exception& e) {
         std::cout << "Intern couldn't make the form because the " << e.what();
+        return (NULL);
     }
+    return (NULL);
 }
 
 const char * Intern::FormNotFoundException::what() const throw() {

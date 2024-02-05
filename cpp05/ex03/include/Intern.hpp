@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 13:53:53 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/02/05 15:11:08 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/02/05 22:48:52 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class Intern
         Intern& operator=(const Intern &copy); // assignment
 
         AForm* makeForm(std::string fname, std::string target);
-
+        
         class FormNotFoundException : public std::exception
         {
             virtual const char* what(void) const throw();
