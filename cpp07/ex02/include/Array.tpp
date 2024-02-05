@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 10:09:50 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/02/02 11:26:39 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/02/05 12:39:49 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 
 template <typename T>
 Array<T>::Array(void) {
-	m_arr = NULL; // or allocation too??
+	m_arr = NULL;
 	m_size = 0;
 }
 
 template <typename T>
 Array<T>::Array(unsigned int n) { 
-	m_arr = new T[n](); // test
-	m_size = n; // to cast to it?
+	m_arr = new T[n]();
+	m_size = n;
 } 
         
 template <typename T>
@@ -55,7 +55,7 @@ Array<T> &Array<T>::operator=(const Array &src) {
 template <typename T>
 T& Array<T>::operator[](size_t i) const {
 	if (i >= this->m_size)
-		throw (Array<T>::OutOfBoundException()); // or try catch here??
+		throw (Array<T>::OutOfBoundException());
 	return this->m_arr[i];
 }
 

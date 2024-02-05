@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:39:39 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/02/02 11:24:58 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/02/05 12:39:29 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,22 @@
 #include <iostream>
 #include <exception>
 
-template <typename T> // or class here??
+template <typename T>
 class Array
 {
     private:
-        T* m_arr; // or T arr[] ??
-        size_t m_size; // extra m_size to know in advance
+        T* m_arr;
+        size_t m_size;
         
     public:
-        Array(void); // creates an empty arr
-        Array(unsigned int n);// does this work?? //creates an arr of n elements
+        Array(void);
+        Array(unsigned int n);
         ~Array();
-        Array(const Array &src); // copy constructor -- TO DO
-        Array& operator=(const Array &csrc); // assignment -- TO DO
+        Array(const Array &src); // copy constructor
+        Array& operator=(const Array &csrc); // assignment
 
         T &operator[](size_t i) const;
-        size_t size(void) const;// returns the nb of elements in the arr
+        size_t size(void) const;
 
         class OutOfBoundException : public std::exception
         {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 11:57:18 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/01/31 10:16:09 by domi             ###   ########.fr       */
+/*   Updated: 2024/02/05 12:30:41 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,7 @@
 #include <iostream>
 #include <string>
 
-// JUST TEST ON LIMITS ON DOUBLE_FLOAT MAX MIN AND SO ON
-
 int main(void){
-    // make constructer private to make not instantiatable (look into Singelton)
-    
     std::string input = "a";
     ScalarConverter::convert(input);
     std::cout << "---------\n";

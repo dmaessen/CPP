@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 11:55:38 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/01/31 11:46:34 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/02/05 12:30:52 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,7 +156,7 @@ void ScalarConverter::convert(std::string input) {
     else if (input == "+inf" || input == "-inf" || input == "nan")
         conv_double(input);
     else {
-        if (input.size() == 1 && ((input >= "A" && input <= "Z") || (input >= "a" && input <= "z"))) // char
+        if (input.size() == 1 && ((input >= "A" && input <= "Z") || (input >= "a" && input <= "z")))
             conv_char(input);
         else {
             size_t found = input.find(".");
