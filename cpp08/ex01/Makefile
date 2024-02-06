@@ -1,12 +1,12 @@
-NAME = easyfind
+NAME = span
 
 CC = c++ 
 CPPFLAGS = -Wall -Wextra -Werror -g -std=c++11
 RM = rm -f
 
-HEADERS = include/easyfind.hpp \
+HEADERS = include/Span.hpp \
 
-SRC = src/main.cpp \
+SRC = src/main.cpp src/Span.cpp \
 
 OBJ = ${SRC:.cpp=.o}
 OBJ_DIR = obj/
