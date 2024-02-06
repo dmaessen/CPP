@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:05:55 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/02/05 22:46:50 by domi             ###   ########.fr       */
+/*   Updated: 2024/02/06 09:51:51 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ int main(void) {
     
     std::cout << "----------------\n";
     Intern	i;
-	AForm*	f = i.makeForm("Shrubbery request", "taxes");
+    std::cout << "----------------\n";
+	AForm* f = i.makeForm("Shrubbery request", "taxes");
     b.signForm(*f);
     b.executeForm(*f);
     b2.signForm(*f);
@@ -32,7 +33,7 @@ int main(void) {
     delete f;
 
     std::cout << "----------------\n";
-    AForm*	f2 = i.makeForm("robotomy request", "taxes");
+    AForm* f2 = i.makeForm("robotomy request", "taxes");
     b.signForm(*f2);
     b.executeForm(*f2);
     b2.signForm(*f2);
@@ -40,7 +41,7 @@ int main(void) {
     delete f2;
 
     std::cout << "----------------\n";
-    AForm*	f3 = i.makeForm("presidential pardon", "taxes");
+    AForm* f3 = i.makeForm("presidential pardon", "taxes");
     b.signForm(*f3);
     b.executeForm(*f3);
     b2.signForm(*f3);
