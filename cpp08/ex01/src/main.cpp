@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 11:10:41 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/02/06 13:13:59 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/02/06 16:29:13 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ int main()
 
     std::cout << sp.shortestSpan() << '\n';
     std::cout << sp.longestSpan() << '\n';
+
+    std::cout << "\n-------------------\n";
+    // test with at least 10 000nb with addManyNumbers()
     
     return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 12:58:32 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/02/06 15:17:52 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/02/06 16:28:22 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,9 @@ class Span
         void addNumber(int i);
 
         int shortestSpan();
-        int longestSpan();
-        // one other function
+        int longestSpan(); // implement
+        
+        void addManyNumbers(); // implement this with a range of iterators
 
         class VectorFullException : public std::exception
         {
