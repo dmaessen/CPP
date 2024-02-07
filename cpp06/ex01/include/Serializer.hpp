@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 11:55:35 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/01/29 14:11:50 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/02/07 18:26:45 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@
 class Serializer
 {
     private:
+        Serializer(void);
+        ~Serializer(void);
+        Serializer(const Serializer &copy);
+        Serializer& operator=(const Serializer &copy);
         
     public:
         static uintptr_t serialize(Data* ptr);
