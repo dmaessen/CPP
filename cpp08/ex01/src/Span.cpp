@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 11:10:38 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/02/06 16:20:35 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/02/08 11:41:05 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,7 @@ int Span::shortestSpan(void) {
         throw NoSpanFoundException();
         return -1; // correct??
     }
-    int small = std::min_element(m_vec.begin(), m_vec.end()); // look them up
-    int big = std::max_element(m_vec.begin(), m_vec.end()); // look them up
-    // int nextSmall = m_vec[0];
+    int [small, big] = std::minmax_element(m_vec.begin(), m_vec.end()); // or (begin(m_vec), end(m_vec))
     int minDist = INT_MAX;
     for (int i = 0; i < m_vec.size(); i++) {
         for (int j = i + 1; i < m_vec.size(); j++) {
@@ -80,7 +78,7 @@ int Span::shortestSpan(void) {
     }
     if (minDist > m_vec.size()) // this is weird no??
         return -1;
-    retrun minDist;
+    return minDist;
 }
 
 int Span::longestSpan(void) {
@@ -89,7 +87,9 @@ int Span::longestSpan(void) {
         throw NoSpanFoundException();
         return -1; // correct??
     }
-    
+    int [small, big] = std::minmax_element(m_vec.begin(), m_vec.end()); // or (begin(m_vec), end(m_vec))
+    int maxDist = abs(big - small); // is abs needed ?? and if its 0
+    return maxDist;
 }
 
 const char * Span::NoSpanFoundException::what() const throw() {
