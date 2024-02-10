@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 12:58:32 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/02/06 16:28:22 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/02/10 15:21:39 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,7 @@ class Span
             virtual const char* what(void) const throw();
         };
 };
+
+typedef std::vector<int>::const_iterator vectIter;
 
 #endif

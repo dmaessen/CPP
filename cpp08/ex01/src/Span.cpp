@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 11:10:38 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/02/08 11:41:05 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/02/10 15:22:33 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Span.hpp"
-#include <limits.h>
-#include <maths.h>
+#include <limits>
+#include <algorithm>
+#include <cmath>
+#include <vector>
 
 Span::Span(void){
     std::cout << "Default constructor called\n";
@@ -87,9 +89,10 @@ int Span::longestSpan(void) {
         throw NoSpanFoundException();
         return -1; // correct??
     }
-    int [small, big] = std::minmax_element(m_vec.begin(), m_vec.end()); // or (begin(m_vec), end(m_vec))
-    int maxDist = abs(big - small); // is abs needed ?? and if its 0
-    return maxDist;
+    vectIter smallIter = std::min_element(m_vec.begin(), m_vec.end()); // type def veciter like said in the subject
+    vectIter bigIter = std::max_element(m_vec.begin(), m_vec.end());
+    //int maxDist = abs(big - small); // is abs needed ?? and if its 0
+    return abs(bigIter - smallIter); // or pointer to it?
 }
 
 const char * Span::NoSpanFoundException::what() const throw() {
