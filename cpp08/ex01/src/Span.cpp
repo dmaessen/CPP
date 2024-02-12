@@ -3,18 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 11:10:38 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/02/10 15:22:33 by domi             ###   ########.fr       */
+/*   Updated: 2024/02/12 16:25:15 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Span.hpp"
 #include <limits>
+#include <limits.h>
 #include <algorithm>
 #include <cmath>
 #include <vector>
+#include <iostream>
+#include <fstream>
+#include <cstdlib>
+#include <ctime>
 
 Span::Span(void){
     std::cout << "Default constructor called\n";
@@ -66,20 +71,17 @@ int Span::shortestSpan(void) {
     if (m_added < 2)
     {
         throw NoSpanFoundException();
-        return -1; // correct??
+        return -1;
     }
-    int [small, big] = std::minmax_element(m_vec.begin(), m_vec.end()); // or (begin(m_vec), end(m_vec))
     int minDist = INT_MAX;
-    for (int i = 0; i < m_vec.size(); i++) {
-        for (int j = i + 1; i < m_vec.size(); j++) {
-            if ((small == m_vec[i] && big == m_vec[j]
-            || big == m_vec[i] && small == m_vec[j])
-            && minDist > abs(i - j))
-                minDist = abs(i -j);
+    int size = m_vec.size();
+    for (int i = 0; i < size; i++) {
+        for (int j = i + 1; j - 1 < size; j++) {
+            int currentDist = abs(m_vec[i] - m_vec[j]);
+            if (currentDist < minDist)
+                minDist = currentDist;
         }
     }
-    if (minDist > m_vec.size()) // this is weird no??
-        return -1;
     return minDist;
 }
 
@@ -87,14 +89,42 @@ int Span::longestSpan(void) {
     if (m_added < 2)
     {
         throw NoSpanFoundException();
-        return -1; // correct??
+        return -1;
     }
-    vectIter smallIter = std::min_element(m_vec.begin(), m_vec.end()); // type def veciter like said in the subject
+    vectIter smallIter = std::min_element(m_vec.begin(), m_vec.end());
     vectIter bigIter = std::max_element(m_vec.begin(), m_vec.end());
-    //int maxDist = abs(big - small); // is abs needed ?? and if its 0
-    return abs(bigIter - smallIter); // or pointer to it?
+    return abs(*bigIter - *smallIter);
 }
 
 const char * Span::NoSpanFoundException::what() const throw() {
     return ("No span found, you need to have at least 2 numbers in the vector.\n");
+}
+
+void Span::addManyNumbers(void) {
+    std::vector<int> copy(1);
+    // std::srand(time(NULL));
+    std::srand(static_cast<unsigned>(std::time(nullptr)));
+    for (size_t size = 0; size < m_n; size++)
+    {
+        for (int &nb : copy) // i have doubts (or auto instead of int??)
+        {
+            nb = std::rand() % (101 -50) + 50;
+            m_vec.push_back(nb);
+        }
+        
+    }
+    
+    // for (int &nb : m_vec) // i have doubts (or auto instead of int??)
+    // {
+    //     nb = std::rand() % (101 -50) + 50;
+    //     // m_vec.push_back(nb);
+    // }
+    
+    m_added = m_n; // not sure if needed but well
+    for (int i = 0; i < 20; i++)
+        std::cout << copy[i] << '\n';
+    std::cout << m_added <<  " || size " << copy.size() << '\n';
+    //for(auto a : array3){
+    //     array3.push_back(rand() % (101 -50) + 50);
+    // }
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 12:58:32 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/02/10 15:21:39 by domi             ###   ########.fr       */
+/*   Updated: 2024/02/12 11:07:58 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Span
 {
     private:
         unsigned int m_n; // size of container
-        int m_added;
+        unsigned int m_added;
         std::vector<int> m_vec;
         Span(void); // needed?
     
@@ -35,8 +35,8 @@ class Span
         
         void addNumber(int i);
 
-        int shortestSpan();
-        int longestSpan(); // implement
+        int shortestSpan(); // implement
+        int longestSpan();
         
         void addManyNumbers(); // implement this with a range of iterators
 
