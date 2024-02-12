@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 12:58:32 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/02/12 11:07:58 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/02/12 21:46:28 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,12 @@ class Span
         // int& operator[](int i) const;
         
         void addNumber(int i);
+        void addNumbers(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end);
 
         int shortestSpan(); // implement
         int longestSpan();
         
-        void addManyNumbers(); // implement this with a range of iterators
+        //void addManyNumbers(); // implement this with a range of iterators
 
         class VectorFullException : public std::exception
         {
