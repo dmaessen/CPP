@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 11:10:38 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/02/12 22:20:15 by domi             ###   ########.fr       */
+/*   Updated: 2024/02/13 11:30:52 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,6 @@ Span& Span::operator=(const Span &copy){
     std::cout << "Copy assignement operator called\n";
     return *this;
 }
-
-// int& Span::operator[](int i) const {
-// 	if (i >= m_n) {
-//         std::cout << "Index out of bound, exiting.\n";
-//         exit(0); // allowed
-//     }
-// 	return m_data[i];
-// }
 
 void Span::addNumber(int i) {
     if (m_n >= m_added)
@@ -100,42 +92,15 @@ const char * Span::NoSpanFoundException::what() const throw() {
     return ("No span found, you need to have at least 2 numbers in the vector.\n");
 }
 
-// void Span::addManyNumbers(void) {
-//     std::vector<int> copy(1);
-//     // std::srand(time(NULL));
-//     std::srand(static_cast<unsigned>(std::time(nullptr)));
-//     for (size_t size = 0; size < m_n; size++)
-//     {
-//         for (int &nb : copy) // i have doubts (or auto instead of int??)
-//         {
-//             nb = std::rand() % (101 -50) + 50;
-//             m_vec.push_back(nb);
-//         }
-        
-//     }
-    
-//     // for (int &nb : m_vec) // i have doubts (or auto instead of int??)
-//     // {
-//     //     nb = std::rand() % (101 -50) + 50;
-//     //     // m_vec.push_back(nb);
-//     // }
-    
-//     m_added = m_n; // not sure if needed but well
-//     for (int i = 0; i < 20; i++)
-//         std::cout << copy[i] << '\n';
-//     std::cout << m_added <<  " || size " << copy.size() << '\n';
-//     //for(auto a : array3){
-//     //     array3.push_back(rand() % (101 -50) + 50);
-//     // }
-// }
-
-void Span::addNumbers(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end)
+void Span::addNumbers(vectIter begin, vectIter end)
 {
-	if (std::distance(begin, end) + m_vec.size() > m_n)
+	if (std::distance(begin, end) + m_vec.size() > m_n + 1)
 		throw VectorFullException();
     else {
         for (int i = 0; i + begin != end; i++)
+        {
             m_vec.push_back(*(begin + i));
+            m_added++;
+        }
     }
-	// m_vec.insert(m_vec.end(), begin, end);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 11:10:41 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/02/12 22:21:06 by domi             ###   ########.fr       */
+/*   Updated: 2024/02/13 11:29:46 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,13 @@ int main()
     std::cout << "longest span: " << sp.longestSpan() << '\n';
 
     std::cout << "-------------------\n";
-    // test with at least 10 000nb with addManyNumbers()
-    // Span sp2 = Span(10001);
-
     try
 	{
-		Span sp2(10001);
+		Span sp2 = Span(10001);
 		std::vector<int> vec2;
-		std::srand(std::time(0));
+		std::srand(time(0));
 		for(int i = 0; i < 100001; i++)	{
-			int randNb = std::rand();
+			int randNb = std::rand() % 10000;
 			vec2.push_back(randNb);
 		}
 		sp2.addNumbers(vec2.begin(), vec2.end());
@@ -59,17 +56,20 @@ int main()
 		std::cerr << ex.what();
 	}
 
-
-
-    
+    std::cout << "-------------------\n";
     try
     {
+        Span sp3 = Span(100000);
 		std::vector<int>    vec3;
-        Span    sp3(100000);
-        for (int i = 0; i < 10000; i++)
-            vec3.push_back(rand() % 9999);
+        std::srand(time(0));
+        for(int i = 0; i < 100000; i++)	{
+			int randNb = std::rand() % 1000000;
+			vec3.push_back(randNb);
+		}
         sp3.addNumbers(vec3.begin(), vec3.end());
-
+        vectIter smallIter = std::min_element(vec3.begin(), vec3.end());
+        vectIter bigIter = std::max_element(vec3.begin(), vec3.end());
+        std::cout << "Biggest element: " << *bigIter << " || Smallest element: " << *smallIter << '\n';
         std::cout << "Shortest span: " << sp3.shortestSpan() << '\n';
         std::cout << "Longest span: " << sp3.longestSpan() << '\n';
 	}
@@ -77,11 +77,6 @@ int main()
 	{
 		std::cerr << ex.what();
 	}
-
-    
-    // sp2.addManyNumbers();
-    //std::cout << "shortest span: " << sp2.shortestSpan() << '\n';
-    // std::cout << "longest span: " << sp2.longestSpan() << '\n';
     
     return 0;
 }
