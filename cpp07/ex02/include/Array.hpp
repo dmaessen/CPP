@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:39:39 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/02/05 12:39:29 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/02/13 12:14:54 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ template <typename T>
 class Array
 {
     private:
-        T* m_arr;
+        T* m_arr; // check if this needs to be allocated directly tho
         size_t m_size;
         
     public:
