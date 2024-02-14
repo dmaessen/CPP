@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.tpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 12:08:11 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/02/13 12:14:18 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/02/14 11:17:11 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,41 @@
 #define MUTANTSTACK_TPP
 #include "MutantStack.hpp"
 #include <iostream>
+#include <stack>
+#include <deque>
 
 template <typename T>
-MutantStack<T>::MutantStack(void) {
-	m_container = NULL;
-    m_size = 0;
+MutantStack<T>::MutantStack(void) : std::stack<T>() {
+	// std::cout << "Default constructor called\n";
 }
      
 template <typename T>
 MutantStack<T>::~MutantStack() {
-	// if (this->m_arr != NULL)
-	// 	delete [] this->m_arr; // this needed??
-	this->m_container = NULL; 
+	// std::cout << "Destructor called\n";
 }
 
-template <typename T> // copy constructor
-MutantStack<T>::MutantStack(const MutantStack &src) : m_container(NULL) {
-	this->m_container = new T[this->m_size];
-	for (size_t i = 0; i < this->m_size; i++)
-		this->m_container[i] = src.m_container[i];
+template <typename T>
+MutantStack<T>::MutantStack(const MutantStack &src) : std::stack<T>(src) {
+	// std::cout << "Copy constructor called\n";
 }
         
-template <typename T> // assignement
+template <typename T>
 MutantStack<T> &MutantStack<T>::operator=(const MutantStack &src) {
-	if (this->m_container != NULL)
-		delete [] this->m_container;
-	this->m_size = src.m_size;
-	this->m_container = new T[this->m_size];
-	for (size_t i = 0; i < this->m_size; i++)
-		this->m_container[i] = src.m_container[i];
+	//std::cout << "Copy assignement operator called\n";
+	if (this != &src)
+		std::stack<T>::operator=(src);
 	return (*this);
 }
 
+template <typename T>
+typename MutantStack<T>::iterator MutantStack<T>::begin() {
+	return (this->c.begin()); // c for container
+}
+
+template <typename T>
+typename MutantStack<T>::iterator MutantStack<T>::end() {
+	return (this->c.end());
+}
 
 
 #endif

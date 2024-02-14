@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 11:34:51 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/02/13 14:06:47 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/02/14 11:17:03 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,22 @@
 #define MUTANTSTACK_HPP
 #include <iostream>
 #include <stack>
+#include <deque>
 
 template <typename T>
-class MutantStack
+class MutantStack : public std::stack<T>
 {
-    private:
-        T* m_container; // or whatever
-        size_t m_size; // needed??
-
     public:
         MutantStack(void);
-        //MutantStack(unsigned int n);
         ~MutantStack();
         MutantStack(const MutantStack &src); // copy constructor
         MutantStack& operator=(const MutantStack &csrc); // assignment
 
-        // TO IMPLEMENT:
-        // ITERATORS for begin();
-        // ITERATORS for end();
+        typedef typename std::deque<T>::iterator iterator;
+        iterator begin();
+        iterator end();
 };
+
 
 #include "MutantStack.tpp"
 

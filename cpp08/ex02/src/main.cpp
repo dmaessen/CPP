@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 11:34:48 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/02/13 11:36:30 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/02/14 11:23:21 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/MutantStack.hpp"
+#include "../include/MutantStack.tpp"
 
 int main()
 {
@@ -19,11 +20,11 @@ int main()
     mstack.push(5);
     mstack.push(17);
     
-    std::cout << mstack.top() << std::endl;
+    std::cout << "top: " << mstack.top() << std::endl; // newest element
 
-    mstack.pop();
+    mstack.pop(); // removes last element of the stack
 
-    std::cout << mstack.size() << std::endl;
+    std::cout << "size after pop: " << mstack.size() << std::endl;
     
     mstack.push(3);
     mstack.push(5);
