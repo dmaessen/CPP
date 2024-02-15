@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 10:09:50 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/02/05 12:39:49 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/02/15 11:45:36 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,27 @@ template <typename T>
 Array<T>::Array(void) {
 	m_arr = NULL;
 	m_size = 0;
+	// std::cout << "Default constructor called\n";
 }
 
 template <typename T>
 Array<T>::Array(unsigned int n) { 
 	m_arr = new T[n]();
 	m_size = n;
+	// std::cout << "Default constructor called\n";
 } 
         
 template <typename T>
 Array<T>::~Array() {
 	if (this->m_arr != NULL)
 		delete [] this->m_arr;
-	this->m_arr = NULL; 
+	this->m_arr = NULL;
+	// std::cout << "Destructor called\n";
 }
 
-template <typename T> // copy constructor
+template <typename T>
 Array<T>::Array(const Array &src) : m_arr(NULL), m_size(src.m_size) {
+	// std::cout << "Copy constructor called\n";
 	this->m_arr = new T[this->m_size];
 	for (size_t i = 0; i < this->m_size; i++)
 		this->m_arr[i] = src.m_arr[i];
@@ -43,6 +47,7 @@ Array<T>::Array(const Array &src) : m_arr(NULL), m_size(src.m_size) {
         
 template <typename T>
 Array<T> &Array<T>::operator=(const Array &src) {
+	//std::cout << "Copy assignement operator called\n";
 	if (this->m_arr != NULL)
 		delete [] this->m_arr;
 	this->m_size = src.m_size;
