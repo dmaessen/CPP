@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:39:39 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/02/13 12:14:54 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/02/27 14:28:15 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ class Array
         Array(const Array &src); // copy constructor
         Array& operator=(const Array &csrc); // assignment
 
-        T &operator[](size_t i) const;
+        T &operator[](size_t i);
+        const T &operator[](size_t i) const;
         size_t size(void) const;
 
         class OutOfBoundException : public std::exception

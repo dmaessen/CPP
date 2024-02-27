@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 10:09:50 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/02/15 11:45:36 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/02/27 14:29:53 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,15 @@ Array<T> &Array<T>::operator=(const Array &src) {
 	return (*this);
 }
 
+// template <typename T>
+// T& Array<T>::operator[](size_t i) {
+// 	if (i >= this->m_size)
+// 		throw (Array<T>::OutOfBoundException());
+// 	return this->m_arr[i];
+// }
+
 template <typename T>
-T& Array<T>::operator[](size_t i) const {
+const T& Array<T>::operator[](size_t i) const {
 	if (i >= this->m_size)
 		throw (Array<T>::OutOfBoundException());
 	return this->m_arr[i];
