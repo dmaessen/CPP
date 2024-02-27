@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:39:36 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/02/27 14:29:22 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/02/27 21:37:32 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int main(void)
     // int * f = new int();
     // std::cout << *f << "\n"; // test
     
-    Array<int> a(6);
+    // const Array<int> a(6); // not possible
+	Array<int> a(6);
 	Array<int> b;
     b = a;
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:39:39 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/02/27 14:28:15 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/02/27 21:29:43 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class Array
         Array& operator=(const Array &csrc); // assignment
 
         T &operator[](size_t i);
-        const T &operator[](size_t i) const;
+        T const &operator[](size_t i) const;
         size_t size(void) const;
 
         class OutOfBoundException : public std::exception
