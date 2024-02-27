@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 10:28:16 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/02/23 13:19:41 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/02/27 13:45:56 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include <iostream>
 #include <fstream>
 #include <map>
+#include <ctime>
+#include <time.h>
 
 class BitcoinExchange
 {
@@ -25,8 +27,12 @@ class BitcoinExchange
         BitcoinExchange(void);
         ~BitcoinExchange();
         BitcoinExchange(const BitcoinExchange &src); // copy constructor
-        BitcoinExchange& operator=(const BitcoinExchange &csrc); // assignment
-    
+        BitcoinExchange& operator=(const BitcoinExchange &src); // assignment
+        
+        int validateInput(char *argv);
+        bool isDate(std::string date);
+        int loadDatabase();
 };
+
 
 #endif

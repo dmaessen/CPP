@@ -1,12 +1,12 @@
-NAME = btc
+NAME = RPN
 
 CC = c++ 
 CPPFLAGS = -Wall -Wextra -Werror -g -std=c++11
 RM = rm -f
 
-HEADERS = include/BitcoinExchange.hpp \
+HEADERS = include/RPN.hpp \
 
-SRC = src/main.cpp src/BitcoinExchange.cpp \
+SRC = src/main.cpp src/RPN.cpp \
 
 OBJ = ${SRC:.cpp=.o}
 OBJ_DIR = obj/
