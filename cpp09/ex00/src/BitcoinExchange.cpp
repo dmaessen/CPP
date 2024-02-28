@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 10:47:44 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/02/27 13:45:46 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/02/28 10:18:33 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <cmath>
 
 BitcoinExchange::BitcoinExchange(void) {
     // std::cout << "Default constructor called\n";
@@ -55,7 +56,7 @@ int BitcoinExchange::loadDatabase() {
         date = line.substr(0, 10);
 		value = line.substr(11, line.size());
 		nb = std::stof(value);
-		_m[date] = nb;
+		_m[date] = nb; // loss of precision here
     }
     infile.close();
     return 0;
@@ -88,7 +89,7 @@ int BitcoinExchange::validateInput(char *argv) {
 		else {
             if (_m.find(date1) != _m.end())
                 std::cout << date1 << " => " << nb << " = " << _m[date1] * nb << '\n';
-            else if (_m.size() < 1)
+            else if (_m.empty())
                     std::cout << "Error: map is empty\n";
             else {
                 std::map<std::string, float>::iterator itlow;
