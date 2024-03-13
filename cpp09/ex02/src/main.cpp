@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:41:07 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/03/13 10:50:00 by domi             ###   ########.fr       */
+/*   Updated: 2024/03/13 16:01:55 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main(int argc, char **argv) 
 {
     if (argc < 2) {
-        std::cout << "Error: worng amount of arguments\n";
+        std::cout << "Error: wrong amount of arguments\n";
         return 1;
     }
 
@@ -39,8 +39,10 @@ int main(int argc, char **argv)
 
 
     // TO DO:
-    // write print ft for deque
-    // wrtie the template sorting things
+    // segfault on  ./PmergeMe `shuf -i 1-100000 -n 3000 | tr "\n" " "`
+    // find maybe ifs due to K
+
+    
 
 
     return 0;
