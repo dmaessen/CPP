@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:41:07 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/03/05 11:14:01 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/03/13 10:50:00 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ int main(int argc, char **argv)
     }
 
     PmergeMe p;
-    if (p.validateInput(argv)) {
-        std::cout << "Error: invalid input\n";
-        return 1;
-    }
-    p.loadInput(argv);
+    // std::string input = "";
+    // for (int i = 0; i < argc; ++i)
+    //     input.append(argv[i]).append(" ");
+    p.sort(argc, argv);
+    //p.loadInput(argv);
 
     // 1: validate if all positive and int (not max+); else error
         // then print the before line
@@ -35,6 +35,12 @@ int main(int argc, char **argv)
 
 
     // make a print ft with all four lines
+
+
+
+    // TO DO:
+    // write print ft for deque
+    // wrtie the template sorting things
 
 
     return 0;
