@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:41:05 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/03/13 16:07:17 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/03/20 14:45:39 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,6 @@ int PmergeMe::validateInput(char *argv) {
 }
 
 void PmergeMe::printVec(void) {
-    // for (int i = 0; !input[i]; ++i) {
-    //     int nb = atoi(input[i]);
-    //     _vec.push_back(nb); // seperated by commas or what??
-    //     _list.push_back(nb);
-    // }
-    
     for (size_t i = 0; i < _vec.size(); i++) {
         if (i == 8) {
             std::cout << " [...]";
@@ -82,7 +76,7 @@ int PmergeMe::sort(int argc, char **argv) {
                 break ;
             }
             std::istringstream(argv[i]) >> nb;
-            _vec.push_back(nb); // seperated by commas or what??
+            _vec.push_back(nb);
             _deq.push_back(nb);
         }
     }
@@ -90,13 +84,13 @@ int PmergeMe::sort(int argc, char **argv) {
         std::cout << e.what();
         return 1;
     }
-    // then function to print
-    std::cout << "Before: "; // so to reuse the next function
+
+    std::cout << "Before: ";
     printVec();
     
     //VECTOR
     clock_t start = clock();
-    mergeinsertSort(_vec, 0, _vec.size() - 1); // to write -- 100 or how much??
+    mergeinsertSort(_vec, 0, _vec.size() - 1);
     clock_t end = clock();
     double t = double(end - start) / CLOCKS_PER_SEC * 1000;
 	std::cout << "After: ";
@@ -105,7 +99,7 @@ int PmergeMe::sort(int argc, char **argv) {
 
     //DEQUE
     start = clock();
-    mergeinsertSort(_deq, 0, _deq.size() - 1); // to write -- 100 or how much??
+    mergeinsertSort(_deq, 0, _deq.size() - 1);
     end = clock();
     t = double(end - start) / CLOCKS_PER_SEC * 1000;
 	std::cout << "After: ";
@@ -118,3 +112,4 @@ int PmergeMe::sort(int argc, char **argv) {
 const char* PmergeMe::NotIntException::what() const throw() {
     return ("Error: invalid input\n");
 }
+

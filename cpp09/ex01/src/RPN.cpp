@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 13:50:31 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/02/29 16:57:17 by domi             ###   ########.fr       */
+/*   Updated: 2024/03/20 14:35:28 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,18 +55,19 @@ int RPN::checkArgv(char *argv) {
 int RPN::calculation(char *argv) {
 	std::istringstream str(argv);
 	std::string input;
+	
 	int nb;
 	int res;
 	while (str >> input) {
 		if (input == "*" || input == "/" || input == "+" || input == "-") {
-			if (_st.size() < 2) { // as we need first two numbers to even do anything
+			if (_stack.size() < 2) {
 				std::cout << "Error: incorrect expression\n";
 				return 1;
 			}
-			int second = _st.top();
-			_st.pop();
-			int first = _st.top();
-			_st.pop();
+			int second = _stack.top();
+			_stack.pop(); // rm from top of stack
+			int first = _stack.top();
+			_stack.pop();
 			if (input == "*")
 				res = first * second;
 			else if (input == "+")
@@ -79,17 +80,17 @@ int RPN::calculation(char *argv) {
 				std::cout << "Error: impossible to divide by 0\n";
 				return 1;
 			}
-			_st.push(res);
+			_stack.push(res);
 		}
 		else {
 			nb = atoi(input.c_str());
-			_st.push(nb);
+			_stack.push(nb);
 		}
 	}
-	if (_st.size() != 1) { 
+	if (_stack.size() != 1) { 
 		std::cout << "Error: incorrect expression\n";
 		return 1;
 	}
-	std::cout << _st.top() << "\n";
-	return 0; // or the res??
+	std::cout << _stack.top() << "\n";
+	return 0;
 }

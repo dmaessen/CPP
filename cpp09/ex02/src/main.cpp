@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:41:07 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/03/13 16:01:55 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/03/20 14:44:02 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,30 +20,7 @@ int main(int argc, char **argv)
     }
 
     PmergeMe p;
-    // std::string input = "";
-    // for (int i = 0; i < argc; ++i)
-    //     input.append(argv[i]).append(" ");
     p.sort(argc, argv);
-    //p.loadInput(argv);
-
-    // 1: validate if all positive and int (not max+); else error
-        // then print the before line
-    // 2: init list ++ vector
-    // 3: split elements in pairs of 2
-    // 4: recursively sort largest (swap if needed??)
-    // 5: create main chain (with a 2temps)
-
-
-    // make a print ft with all four lines
-
-
-
-    // TO DO:
-    // segfault on  ./PmergeMe `shuf -i 1-100000 -n 3000 | tr "\n" " "`
-    // find maybe ifs due to K
-
-    
-
 
     return 0;
 }

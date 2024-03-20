@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 10:47:44 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/02/28 10:18:33 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/03/20 15:07:44 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,13 @@ int BitcoinExchange::loadDatabase() {
     
     std::string date;
 	std::string value;
-	float nb;
+	double nb;
     std::string line;
 	std::getline(infile, line);
     while (std::getline(infile, line)){
         date = line.substr(0, 10);
 		value = line.substr(11, line.size());
-		nb = std::stof(value);
+		nb = std::stod(value);
 		_m[date] = nb; // loss of precision here
     }
     infile.close();
@@ -72,7 +72,7 @@ int BitcoinExchange::validateInput(char *argv) {
     
 	std::string date1;
 	std::string value;
-	float nb;
+	double nb;
     std::string line;
 	std::getline(infile, line);
     while (std::getline(infile, line)){
@@ -83,7 +83,7 @@ int BitcoinExchange::validateInput(char *argv) {
             continue ;
         }
 		value = line.substr(13, line.size());
-		nb = std::stof(value);
+		nb = std::stod(value);
 		if (nb < 0 || nb > 1000)
 			std::cout << "Error: incorrect value, needs to be between 0 and 1000\n";
 		else {

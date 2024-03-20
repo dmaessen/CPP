@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 13:50:34 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/02/29 16:58:20 by domi             ###   ########.fr       */
+/*   Updated: 2024/03/20 14:19:19 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ int main(int argc, char **argv)
 	if (r.checkArgv(argv[1]))
 		return 1;
 	r.calculation(argv[1]);
- 
+
 	return 0;
 }
