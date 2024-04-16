@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 13:50:31 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/03/20 14:35:28 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/04/15 10:49:44 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,13 @@ int RPN::calculation(char *argv) {
 			nb = atoi(input.c_str());
 			_stack.push(nb);
 		}
+		// std::stack<int> temp;
+		// temp = _stack;
+		// while (!temp.empty()) {
+        // 	std::cout << temp.top() << ' ';
+		// 	temp.pop();
+		// }
+		// std::cout << "\n";
 	}
 	if (_stack.size() != 1) { 
 		std::cout << "Error: incorrect expression\n";
