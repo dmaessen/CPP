@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:41:21 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/03/20 15:02:57 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/04/17 11:12:28 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,12 @@ class PmergeMe
         };
     
         template<typename T>
-        void insertionSort(T &container, int l, int q)
+        void insertionSort(T &container, int start, int size)
         {
-            for (int i = l; i < q; i++) {
+            for (int i = start; i < size; i++) {
                 int tmp = container[i + 1];
                 int j = i + 1;
-                while (j > l && container[j - 1] > tmp) {
+                while (j > start && container[j - 1] > tmp) {
                     container[j] = container[j -1];
                     j--;
                 }
@@ -59,28 +59,29 @@ class PmergeMe
         }
 
         template<typename T>
-        void mergeSort(T& container, int pos, int q, int size)
+        void mergeSort(T& container, int start, int mid, int size)
         {
-            int n1 = q - pos + 1;
-            int n2 = size - q;
-            T rightHalf(n1);
-            T leftHalf(n2);
-            for (int i = pos; i < q + 1; i++) // or not size + 1 myabe? +2??
-                rightHalf[i] = container[i];
+            int n1 = mid - start + 1;
+            int n2 = size - mid;
+            
+            T leftHalf(n1);
+            T rightHalf(n2);
+            for (int i = start; i < mid; i++)
+                rightHalf[i - start] = container[i];
             int j = 0;
-            for (int i = (q + 1); i < size + 1; i++) {
+            for (int i = mid; i < size; i++) {
                 leftHalf[j] = container[i];
                 j++;
             }
             int rIndex = 0;
             int lIndex = 0;
-            for (int i = 0; i < size - pos + 1; i++) {
+            for (int i = start; i < size; i++) {
                 if (rIndex == n2){
-                    container[i]= leftHalf[lIndex];
+                    container[i] = leftHalf[lIndex];
                     lIndex++;
                 }
                 else if (lIndex == n1){
-                    container[i]= rightHalf[rIndex];
+                    container[i] = rightHalf[rIndex];
                     rIndex++;
                 }
                 else if (rightHalf[rIndex] > leftHalf[lIndex]) {
@@ -97,13 +98,13 @@ class PmergeMe
         template<typename T>
         void mergeinsertSort(T &container, int pos, int size)
         {
-            int k = size;
-            // donner des noms qui ont plus de sens, jui perdue
+            int k = 100;
             if (size - pos > k) {
-                int q = (pos + size) / 2;
-                mergeinsertSort(container, pos, q);
-                mergeinsertSort(container, q + 1, size);
-                mergeSort(container, pos, q, size);
+                int midpoint = (pos + size) / 2;
+                mergeinsertSort(container, pos, midpoint);
+                mergeinsertSort(container, midpoint + 1, size);
+                std::cout << "again\n" << pos << " " << midpoint << " " << size << '\n';
+                mergeSort(container, pos, midpoint, size);
             }
             else
                 insertionSort(container, pos, size);
