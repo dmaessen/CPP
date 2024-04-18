@@ -6,7 +6,7 @@
 /*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:54:15 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/04/18 11:17:11 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/04/18 11:41:08 by dmaessen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void PmergeMe2::printDeque(void){
     std::cout << "\n";
 }
 
-int PmergeMe2::sort(int argc, char **argv) {
+int PmergeMe2::start(int argc, char **argv) {
     try {
         int nb;
         for (int i = 1; argv[i]; i++) {
