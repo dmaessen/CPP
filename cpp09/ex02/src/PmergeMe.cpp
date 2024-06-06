@@ -6,7 +6,7 @@
 /*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:54:15 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/06/06 15:26:24 by domi             ###   ########.fr       */
+/*   Updated: 2024/06/06 15:30:04 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,3 @@ int PmergeMe::start(int argc, char **argv) {
 const char* PmergeMe::NotIntException::what() const throw() {
     return ("Error: invalid input\n");
 }
-
-
-
-

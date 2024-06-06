@@ -6,7 +6,7 @@
 /*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:54:17 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/06/06 15:24:36 by domi             ###   ########.fr       */
+/*   Updated: 2024/06/06 15:30:38 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,32 +61,30 @@ class PmergeMe
 	    void mergeinsertionSort(std::deque<Pair> &X, std::deque<Pair> &S, std::deque<Pair> &pairs, size_t depth);
 	    bool insertionSort(std::deque<Pair> &S, size_t subsequenceLen, Pair &pair);
 
-        template<typename T>
-        void sort(T &container, int pos, int size)
-        {
-            std::vector<Pair> origin;
-            std::vector<Pair> pairs;
+        // template<typename T>
+        // void sort(T &container, int pos, int size)
+        // {
+        //     std::vector<Pair> origin;
+        //     std::vector<Pair> pairs;
             
-            for (size_t i = 0; i < container.size(); i++)
-            {
-                unsigned int value = container[i];
-                Pair pair = {
-                    .value = value,
-                    .index = pairs.size(),
-                    .smallParentIndex = SIZE_MAX, // indicates value being uninitialised
-                    .bigParentIndex = SIZE_MAX,
-                    .depth = 0,
-                };
-                origin.push_back(pair);
-                pairs.push_back(pair);
-            }
-            std::vector<Pair> res;
-            mergeInsertSort(origin, res, pairs, 1); // 1 is the dpeth here
-            transferBack(res, container);
-        }
+        //     for (size_t i = 0; i < container.size(); i++)
+        //     {
+        //         unsigned int value = container[i];
+        //         Pair pair = {
+        //             .value = value,
+        //             .index = pairs.size(),
+        //             .smallParentIndex = SIZE_MAX, // indicates value being uninitialised
+        //             .bigParentIndex = SIZE_MAX,
+        //             .depth = 0,
+        //         };
+        //         origin.push_back(pair);
+        //         pairs.push_back(pair);
+        //     }
+            // std::vector<Pair> res;
+            // mergeInsertSort(origin, res, pairs, 1); // 1 is the dpeth here
+            // transferBack(res, container);
+        // }
 
-
-	
 
 
 	

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:41:07 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/03/20 14:44:02 by dmaessen         ###   ########.fr       */
+/*   Updated: 2024/06/06 15:31:05 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(int argc, char **argv)
     }
 
     PmergeMe p;
-    p.sort(argc, argv);
+    p.start(argc, argv);
 
     return 0;
 }

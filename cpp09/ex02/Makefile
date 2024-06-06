@@ -1,33 +1,35 @@
 NAME = PmergeMe
 
-CC = c++ 
+CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -g -std=c++11
 RM = rm -f
 
-HEADERS = include/PmergeMe.hpp \
+HEADERS = include/PmergeMe.hpp
 
-SRC = src/main.cpp src/PmergeMe.cpp src/PmergeMeVec.cpp src/PmergeMeDeque.cpp\ 
+SRC = src/main.cpp src/PmergeMe.cpp src/PmergeMeVec.cpp src/PmergeMeDeque.cpp
 
-OBJ = ${SRC:.cpp=.o}
 OBJ_DIR = obj/
-OBJECT_PREFIXED = $(addprefix $(OBJ_DIR), $(OBJ))
+OBJ = $(SRC:src/%.cpp=$(OBJ_DIR)%.o)
 
 all: $(NAME)
 
-$(OBJ_DIR)%.o : %.cpp $(HEADERS)
-	@mkdir -p $(dir $@)
-	@$(CC) $(CPPFLAGS) -o $@ -c $< 
+$(OBJ_DIR)%.o: src/%.cpp $(HEADERS)
+	@echo "Compiling $< to $@"
+	@mkdir -p $(OBJ_DIR)
+	@$(CC) $(CPPFLAGS) -c $< -o $@
 
-$(NAME): $(OBJECT_PREFIXED)
-	@$(CC) $(OBJECT_PREFIXED)  -o $(NAME)
+$(NAME): $(OBJ)
+	@echo "Linking $@"
+	@$(CC) $(CPPFLAGS) $^ -o $@
 
 clean:
-	@rm -rf $(OBJ_DIR)
+	@echo "Cleaning object files in $(OBJ_DIR)"
+	@$(RM) -r $(OBJ_DIR)
 
 fclean: clean
+	@echo "Cleaning executable $(NAME)"
 	@$(RM) $(NAME)
 
-re: fclean
-	@$(MAKE) all
+re: fclean all
 
-.PHONY:	all clean fclean re
+.PHONY: all clean fclean re
