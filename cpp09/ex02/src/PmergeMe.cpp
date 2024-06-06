@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/04 13:41:05 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/03/20 14:45:39 by dmaessen         ###   ########.fr       */
+/*   Created: 2024/04/18 10:54:15 by dmaessen          #+#    #+#             */
+/*   Updated: 2024/06/06 15:26:24 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void PmergeMe::printDeque(void){
     std::cout << "\n";
 }
 
-int PmergeMe::sort(int argc, char **argv) {
+int PmergeMe::start(int argc, char **argv) {
     try {
         int nb;
         for (int i = 1; argv[i]; i++) {
@@ -90,7 +90,8 @@ int PmergeMe::sort(int argc, char **argv) {
     
     //VECTOR
     clock_t start = clock();
-    mergeinsertSort(_vec, 0, _vec.size() - 1);
+    // mergeinsertSort(_vec, 0, _vec.size() - 1);
+    sort(_vec);
     clock_t end = clock();
     double t = double(end - start) / CLOCKS_PER_SEC * 1000;
 	std::cout << "After: ";
@@ -99,7 +100,8 @@ int PmergeMe::sort(int argc, char **argv) {
 
     //DEQUE
     start = clock();
-    mergeinsertSort(_deq, 0, _deq.size() - 1);
+    // mergeinsertSort(_deq, 0, _deq.size() - 1);
+    sort(_deq);
     end = clock();
     t = double(end - start) / CLOCKS_PER_SEC * 1000;
 	std::cout << "After: ";
@@ -112,4 +114,7 @@ int PmergeMe::sort(int argc, char **argv) {
 const char* PmergeMe::NotIntException::what() const throw() {
     return ("Error: invalid input\n");
 }
+
+
+
 

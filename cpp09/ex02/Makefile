@@ -6,7 +6,7 @@ RM = rm -f
 
 HEADERS = include/PmergeMe.hpp \
 
-SRC = src/main.cpp src/PmergeMe.cpp \
+SRC = src/main.cpp src/PmergeMe.cpp src/PmergeMeVec.cpp src/PmergeMeDeque.cpp\ 
 
 OBJ = ${SRC:.cpp=.o}
 OBJ_DIR = obj/

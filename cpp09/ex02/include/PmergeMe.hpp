@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmaessen <dmaessen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: domi <domi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/04 13:41:21 by dmaessen          #+#    #+#             */
-/*   Updated: 2024/04/17 11:12:28 by dmaessen         ###   ########.fr       */
+/*   Created: 2024/04/18 10:54:17 by dmaessen          #+#    #+#             */
+/*   Updated: 2024/06/06 15:24:36 by domi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@
 #include <vector>
 #include <exception>
 #include <time.h>
+#include <algorithm>
 
 class PmergeMe
 {
     private:
-        std::deque<int> _deq;
-        std::vector<int> _vec;
+        std::deque<unsigned int> _deq;
+        std::vector<unsigned int> _vec;
 
     public:
         PmergeMe();
@@ -36,79 +37,59 @@ class PmergeMe
         void printVec(void);
         void printDeque(void);
 
-        int sort(int argc, char **argv);
-        
+        int start(int argc, char **argv);
+        void sort(std::vector<unsigned int> &arr);
+	    void sort(std::deque<unsigned int> &arr);
+
         class NotIntException : public std::exception
         {
             public:
                 const char* what() const throw();
-        };
+        };    
     
-        template<typename T>
-        void insertionSort(T &container, int start, int size)
-        {
-            for (int i = start; i < size; i++) {
-                int tmp = container[i + 1];
-                int j = i + 1;
-                while (j > start && container[j - 1] > tmp) {
-                    container[j] = container[j -1];
-                    j--;
-                }
-                container[j] = tmp;
-            }
-        }
+        struct Pair {
+            unsigned int value;
+            size_t index;
+            size_t smallParentIndex;
+            size_t bigParentIndex;
+            size_t depth;
+        };
+        
+        void mergeinsertionSort(std::vector<Pair> &X, std::vector<Pair> &S, std::vector<Pair> &pairs, size_t depth);
+	    bool insertionSort(std::vector<Pair> &S, size_t subsequenceLen, Pair &pair);
+
+	    void mergeinsertionSort(std::deque<Pair> &X, std::deque<Pair> &S, std::deque<Pair> &pairs, size_t depth);
+	    bool insertionSort(std::deque<Pair> &S, size_t subsequenceLen, Pair &pair);
 
         template<typename T>
-        void mergeSort(T& container, int start, int mid, int size)
+        void sort(T &container, int pos, int size)
         {
-            int n1 = mid - start + 1;
-            int n2 = size - mid;
+            std::vector<Pair> origin;
+            std::vector<Pair> pairs;
             
-            T leftHalf(n1);
-            T rightHalf(n2);
-            for (int i = start; i < mid; i++)
-                rightHalf[i - start] = container[i];
-            int j = 0;
-            for (int i = mid; i < size; i++) {
-                leftHalf[j] = container[i];
-                j++;
+            for (size_t i = 0; i < container.size(); i++)
+            {
+                unsigned int value = container[i];
+                Pair pair = {
+                    .value = value,
+                    .index = pairs.size(),
+                    .smallParentIndex = SIZE_MAX, // indicates value being uninitialised
+                    .bigParentIndex = SIZE_MAX,
+                    .depth = 0,
+                };
+                origin.push_back(pair);
+                pairs.push_back(pair);
             }
-            int rIndex = 0;
-            int lIndex = 0;
-            for (int i = start; i < size; i++) {
-                if (rIndex == n2){
-                    container[i] = leftHalf[lIndex];
-                    lIndex++;
-                }
-                else if (lIndex == n1){
-                    container[i] = rightHalf[rIndex];
-                    rIndex++;
-                }
-                else if (rightHalf[rIndex] > leftHalf[lIndex]) {
-                    container[i] = leftHalf[lIndex];
-                    lIndex++;
-                }
-                else {
-                    container[i] = rightHalf[rIndex];
-                    rIndex++;
-                }
-            }
+            std::vector<Pair> res;
+            mergeInsertSort(origin, res, pairs, 1); // 1 is the dpeth here
+            transferBack(res, container);
         }
-        
-        template<typename T>
-        void mergeinsertSort(T &container, int pos, int size)
-        {
-            int k = 100;
-            if (size - pos > k) {
-                int midpoint = (pos + size) / 2;
-                mergeinsertSort(container, pos, midpoint);
-                mergeinsertSort(container, midpoint + 1, size);
-                std::cout << "again\n" << pos << " " << midpoint << " " << size << '\n';
-                mergeSort(container, pos, midpoint, size);
-            }
-            else
-                insertionSort(container, pos, size);
-        }
+
+
+	
+
+
+	
 };
 
 #endif
